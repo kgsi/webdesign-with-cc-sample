@@ -5,86 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>佐藤結衣｜グラフィックデザイナー</title>
   <style>
+    /* ===== デザイントークン ===== */
     :root {
-      --text: #2b2b2b;
-      --muted: #6f6f6f;
-      --accent: #2f5d45;
-      --bg: #fdfdfb;
+      --ink:        #262a2b; /* 本文：黒に近いグレー */
+      --ink-strong: #1a1d1e; /* 見出し */
+      --ink-muted:  #6a7370; /* 補足テキスト */
+      --accent:     #1f5138; /* アクセント：深い緑（1色のみ） */
+      --accent-dark:#153724;
+      --line:       #e4e7e3; /* 罫線 */
+      --bg:         #ffffff;
+      --bg-soft:    #f6f8f6;
+
+      --measure: 40rem;      /* 本文の最大幅（日本語で約40字） */
+      /* セクション間の余白：線を使わず、この余白だけで区切る */
+      --space-section: clamp(5rem, 13vw, 8rem);
+
+      --font-ja: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                 "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic",
+                 "Meiryo", sans-serif;
     }
+
+    /* ===== ベース ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Yu Gothic", sans-serif;
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
+      padding: clamp(3rem, 9vw, 6rem) 1.5rem clamp(2.5rem, 6vw, 4rem);
+      font-family: var(--font-ja);
+      font-size: 1rem;
       line-height: 1.9;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .container {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 80px 24px 96px;
+
+    /* 1カラムのコンテンツを中央に置く */
+    body > * {
+      max-width: var(--measure);
+      margin-inline: auto;
     }
-    header h1 {
-      font-size: 32px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin: 0 0 8px;
-    }
-    .role {
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin: 0;
-    }
-    section {
-      margin-top: 88px;
-    }
-    h2 {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin: 0 0 16px;
-    }
-    p {
-      margin: 0 0 1em;
-    }
-    p:last-child {
-      margin-bottom: 0;
-    }
-    ul {
-      margin: 0;
-      padding-left: 1.3em;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    li:last-child {
-      margin-bottom: 0;
-    }
-    .year {
-      color: var(--muted);
-      font-size: 13px;
-      margin-left: 0.4em;
-    }
+
+    p { margin: 0 0 1.25em; }
+    p:last-child { margin-bottom: 0; }
+
+    ::selection { background: #dfe9e2; }
+
     a {
       color: var(--accent);
-      text-underline-offset: 3px;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.25em;
+      text-decoration-color: rgba(31, 81, 56, 0.35);
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
     }
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration-color: currentColor;
+    }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ===== ヘッダー ===== */
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      color: var(--ink-strong);
+      font-feature-settings: "palt";
+    }
+
+    .center { text-align: center; }
+
+    /* 肩書き・拠点 */
+    header p.center {
+      margin: 0;
+      font-size: 0.875rem;
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+    }
+
+    /* ===== セクション ===== */
+    /* 区切り線は置かず、大きな余白だけでブロックを分ける */
+    main,
+    footer { margin-top: var(--space-section); }
+
+    section + section { margin-top: var(--space-section); }
+
+    h2 {
+      margin: 0 0 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--ink-strong);
+    }
+    /* 見出しの上に短い緑のライン（唯一の装飾） */
+    h2::before {
+      content: "";
+      display: block;
+      width: 1.75rem;
+      height: 2px;
+      margin-bottom: 1rem;
+      background: var(--accent);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* できること：小さな緑のドット付きリスト */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 0.375rem 2rem;
+    }
+    .skills li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+    .skills li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* 最近の仕事：作品名を主役に、年号は右端の補足に */
+    .works {
+      border-bottom: 1px solid var(--line);
+    }
+    .works li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0 1.5rem;
+      border-top: 1px solid var(--line);
+      padding: 1rem 0;
+    }
+    .work-title { flex: 1 1 auto; }
+
+    /* 主役：作品名 */
+    .work-name {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--ink-strong);
+    }
+
+    /* 補足：年号 */
+    .work-year {
+      flex: 0 0 auto;
+      font-size: 0.8125rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+
+    /* ===== 連絡先 ===== */
+    .contact-box {
+      padding: 1.5rem 1.75rem;
+      background: var(--bg-soft);
+      border-radius: 3px;
+    }
+
+    /* ===== フッター ===== */
     footer {
-      margin-top: 112px;
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+    }
+
+    /* ===== 印刷 ===== */
+    @media print {
+      body { padding: 0; color: #000; }
+      a { color: #000; }
+      .contact-box { background: none; padding: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>佐藤結衣のポートフォリオ</h1>
-      <p class="role">グラフィックデザイナー／東京</p>
-    </header>
+  <header>
+    <h1 class="center">佐藤結衣のポートフォリオ</h1>
+    <p class="center">グラフィックデザイナー／東京</p>
+  </header>
 
+  <main>
     <section>
       <h2>自己紹介</h2>
       <p>
@@ -96,7 +212,7 @@
 
     <section>
       <h2>できること</h2>
-      <ul>
+      <ul class="skills">
         <li>ロゴ・ブランドデザイン</li>
         <li>パッケージデザイン</li>
         <li>イラスト制作</li>
@@ -106,24 +222,32 @@
 
     <section>
       <h2>最近の仕事</h2>
-      <ul>
-        <li>喫茶ソレイユ：ロゴとショップカード<span class="year">（2025）</span></li>
-        <li>焼き菓子ブランド「つきとほし」：パッケージ一式<span class="year">（2025）</span></li>
-        <li>クラフトビール「YAMANAMI」：ラベルイラスト<span class="year">（2026）</span></li>
+      <ul class="works">
+        <li>
+          <span class="work-title"><span class="work-name">喫茶ソレイユ</span>：ロゴとショップカード</span><span class="work-year">（2025）</span>
+        </li>
+        <li>
+          <span class="work-title"><span class="work-name">焼き菓子ブランド「つきとほし」</span>：パッケージ一式</span><span class="work-year">（2025）</span>
+        </li>
+        <li>
+          <span class="work-title"><span class="work-name">クラフトビール「YAMANAMI」</span>：ラベルイラスト</span><span class="work-year">（2026）</span>
+        </li>
       </ul>
     </section>
 
     <section>
       <h2>連絡先</h2>
-      <p>
-        お仕事のご相談は <a href="mailto:hello@example.com">hello@example.com</a> へお願いします。<br />
-        Instagram: <a href="https://example.com/">@yui_sato_design</a>
-      </p>
+      <div class="contact-box">
+        <p>
+          お仕事のご相談は <a href="mailto:hello@example.com">hello@example.com</a> へお願いします。<br />
+          Instagram: <a href="https://example.com/">@yui_sato_design</a>
+        </p>
+      </div>
     </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2026 Yui Sato</p>
-    </footer>
-  </div>
+  <footer>
+    <p class="center">&copy; 2026 Yui Sato</p>
+  </footer>
 </body>
 </html>
