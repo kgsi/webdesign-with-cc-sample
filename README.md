@@ -9,6 +9,7 @@
 | `profile-site/` | 2-2　基本的な制作サイクルを体験する | 導入演習で使う1枚もののプロフィールページ。`index.html` が演習の開始地点、`example-result/` が演習を終えた状態の一例 |
 | `ec-site/` | 2-3　ミニ実践：シンプルなECサイトを作る | ミニ実践の完成形。トップ＋商品詳細の2ページ構成の静的サイトで、`CLAUDE.md`・`DESIGN.md`・ムードボードなど本文で扱うコンテキストファイルも含む |
 | `skill-compare/` | 2-6　Skillsで繰り返しの作業を制作ルール化する | frontend-design Skillのあり・なしだけを変えて、同一プロンプトから生成した2つの出力の比較 |
+| `lp-site/` | 第3章　Claude Codeでデザイン判断を磨く | 第3章でレビューの題材にする、架空の航空会社AURORA AIRWAYSのランディングページ。ブリーフ・ムードボード・写真素材と、Claude Codeが生成した初稿 |
 
 各フォルダの詳しい使い方は、それぞれの `README.md` を参照してください。
 
@@ -32,5 +33,5 @@ git clone https://github.com/kgsi/webdesign-with-cc-sample.git
 ## ライセンス
 
 - このリポジトリのコードとドキュメントは [MIT License](./LICENSE) で提供します
-- `ec-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は `ec-site/README.md` に記載しています
+- `ec-site/images/` と `lp-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は各フォルダの `README.md` に記載しています
 - `skill-compare/with-skill/.claude/skills/frontend-design/` は [Anthropic公開のSkill](https://github.com/anthropics/skills) の実物で、Apache License 2.0 で提供されています（ライセンス全文を同フォルダに同梱）
