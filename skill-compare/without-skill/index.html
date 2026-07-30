@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社サンライズ製作所｜金属部品の精密加工</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #333;
+    line-height: 1.8;
+    background: #fff;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing: 0.1em;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #c8102e;
+    margin: 16px auto 0;
+  }
+
+  /* ヘッダー */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+
+  .logo span {
+    color: #c8102e;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+  }
+
+  nav a {
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  nav a:hover {
+    color: #c8102e;
+  }
+
+  .nav-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* メインビジュアル */
+  .hero {
+    background: linear-gradient(135deg, #1a2740 0%, #2c3e5c 100%);
+    color: #fff;
+    text-align: center;
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -120px;
+    left: -60px;
+    width: 260px;
+    height: 260px;
+    border: 2px solid rgba(200, 16, 46, 0.2);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero p {
+    font-size: 16px;
+    opacity: 0.85;
+    position: relative;
+  }
+
+  /* 私たちについて */
+  .about p {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+
+  /* 事業内容 */
+  .services {
+    background: #f6f7f9;
+  }
+
+  .service-cards {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 260px;
+    background: #fff;
+    padding: 40px 28px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #1a2740;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .card h3 {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+  }
+
+  /* 会社情報 */
+  .company-table {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  .company-table th,
+  .company-table td {
+    text-align: left;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 15px;
+  }
+
+  .company-table th {
+    width: 34%;
+    background: #f6f7f9;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  /* お知らせ */
+  .news {
+    background: #f6f7f9;
+  }
+
+  .news-list {
+    max-width: 760px;
+    margin: 0 auto;
+    list-style: none;
+  }
+
+  .news-list li {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2e2;
+    align-items: baseline;
+  }
+
+  .news-date {
+    color: #888;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .news-tag {
+    display: inline-block;
+    background: #1a2740;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .news-text {
+    font-size: 15px;
+  }
+
+  /* お問い合わせ */
+  .contact {
+    text-align: center;
+  }
+
+  .contact p {
+    margin-bottom: 24px;
+    font-size: 16px;
+  }
+
+  .contact-mail {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #c8102e;
+    letter-spacing: 0.05em;
+    padding: 14px 36px;
+    border: 2px solid #c8102e;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .contact-mail:hover {
+    background: #c8102e;
+    color: #fff;
+  }
+
+  /* フッター */
+  footer {
+    background: #1a2740;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-logo span {
+    color: #c8102e;
+  }
+
+  footer .copyright {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    section {
+      padding: 56px 0;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      background: #fff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.open {
+      display: flex;
+    }
+
+    nav li {
+      border-top: 1px solid #eee;
+    }
+
+    nav a {
+      display: block;
+      padding: 16px 24px;
+    }
+
+    .hero {
+      padding: 90px 0;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+    }
+
+    .service-cards {
+      flex-direction: column;
+    }
+
+    .news-list li {
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">SUNRISE<span>.</span></div>
+    <nav>
+      <button class="nav-toggle" aria-label="メニュー">☰</button>
+      <ul id="nav-menu">
+        <li><a href="#about">私たちについて</a></li>
+        <li><a href="#services">事業内容</a></li>
+        <li><a href="#company">会社情報</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>0.001mmに、誠実を。</h1>
+    <p>株式会社サンライズ製作所 ── 金属部品の精密加工</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">私たちについて</h2>
+    <p>
+      株式会社サンライズ製作所は、1974年の創業以来、長野県松本市で金属部品の精密加工を手がけてきました。
+      自動車や医療機器といった、わずかな誤差も許されない分野で、0.001mm単位の精度を追い求め続けています。
+      熟練の技術者と最新の設備を組み合わせ、試作から量産まで一貫した体制でお客様のものづくりを支えます。
+      「品質は誠実さの積み重ねである」という信念のもと、これからも確かな一つひとつをお届けします。
+    </p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">事業内容</h2>
+    <div class="service-cards">
+      <div class="card">
+        <div class="card-icon">切</div>
+        <h3>精密切削加工</h3>
+        <p>NC旋盤・マシニングセンタを駆使し、複雑な形状や微細な公差にも対応。自動車・医療機器向けの高精度な金属部品を安定した品質で提供します。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">試</div>
+        <h3>試作品製作</h3>
+        <p>図面や3Dデータをもとに、短納期で試作品を製作。設計段階からご相談いただくことで、量産を見据えた最適な形状をご提案します。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">量</div>
+        <h3>量産対応</h3>
+        <p>試作から量産まで一貫した生産体制を構築。徹底した品質管理と検査工程により、大量生産でも一つひとつの精度を守り抜きます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="company" id="company">
+  <div class="container">
+    <h2 class="section-title">会社情報</h2>
+    <table class="company-table">
+      <tr>
+        <th>社名</th>
+        <td>株式会社サンライズ製作所</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>長野県松本市</td>
+      </tr>
+      <tr>
+        <th>創業年</th>
+        <td>1974年</td>
+      </tr>
+      <tr>
+        <th>従業員数</th>
+        <td>48名</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="news" id="news">
+  <div class="container">
+    <h2 class="section-title">お知らせ</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">2026.06.15</span>
+        <span class="news-tag">お知らせ</span>
+        <span class="news-text">医療機器向け新ラインの稼働を開始しました。</span>
+      </li>
+      <li>
+        <span class="news-date">2026.04.01</span>
+        <span class="news-tag">採用</span>
+        <span class="news-text">2027年度 新卒採用エントリーの受付を開始しました。</span>
+      </li>
+      <li>
+        <span class="news-date">2026.02.20</span>
+        <span class="news-tag">認証</span>
+        <span class="news-text">品質マネジメントシステムの認証を更新しました。</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p>お見積り・ご相談は、下記のメールアドレスまでお気軽にご連絡ください。</p>
+    <a class="contact-mail" href="mailto:info@sunrise-seisakusho.example.co.jp">info@sunrise-seisakusho.example.co.jp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">SUNRISE<span>.</span></div>
+    <p class="copyright">&copy; 1974 株式会社サンライズ製作所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle.addEventListener('click', function () {
+    menu.classList.toggle('open');
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
