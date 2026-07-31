@@ -1,13 +1,13 @@
-# lp-site — AURORA AIRWAYSランディングページ（第3章）
+# lp-site — CELESTE AIRWAYSランディングページ（第3章）
 
-第3章「Claude Codeでデザイン判断を磨く」でレビューの題材にする、架空の航空会社AURORA AIRWAYSのランディングページです。
+第3章「Claude Codeでデザイン判断を磨く」でレビューの題材にする、架空の航空会社CELESTE AIRWAYSのランディングページです。
 
 ## 構成
 
 | ファイル | 内容 |
 | --- | --- |
 | `BRIEF.md` | 生成時にClaude Codeへ渡したブリーフ（目的・ターゲット・トーン・構成・素材・制約） |
-| `moodboard/aurora-airways-moodboard.jpg` | デザインの方向性を示すムードボード |
+| `moodboard/celeste-airways-moodboard.jpg` | デザインの方向性を示すムードボード |
 | `images/` | LPで使う写真素材 |
 | `index.html`・`css/style.css` | 上記のブリーフと素材からClaude Codeが生成した初稿 |
 
@@ -32,4 +32,4 @@
 | `offer-beach.jpg` | Ittemaldiviano 🇲🇻 | [photo](https://unsplash.com/photos/jmkMl20jNS0) |
 | `offer-club.jpg` | Leonardo Yip | [photo](https://unsplash.com/photos/rn-NLirHQPY) |
 
-`moodboard/aurora-airways-moodboard.jpg` は著者が作成したもので、AI画像生成による画像を含みます。
+`moodboard/celeste-airways-moodboard.jpg` は著者が作成したもので、AI画像生成による画像を含みます。
