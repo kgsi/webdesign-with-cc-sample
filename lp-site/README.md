@@ -10,7 +10,7 @@
 | `moodboard/aurora-airways-moodboard.jpg` | デザインの方向性を示すムードボード |
 | `images/` | LPで使う写真素材 |
 | `index.html`・`css/style.css` | 上記のブリーフと素材からClaude Codeが生成した初稿 |
-| `example-result/` | 第3章の修正指示を順に適用していく完成例（執筆の進行に合わせて更新。現在3-3節まで適用済み） |
+| `example-result/` | 第3章の修正指示を順に適用していく完成例（執筆の進行に合わせて更新。現在3-4節まで適用済み） |
 
 `index.html` は生成後に手を加えていない初稿のままです。第3章では、この初稿とムードボードを見比べながら違和感を言語化し、修正指示で改善していきます。演習でファイルが大きく壊れたときは、このフォルダからコピーし直せば初稿からやり直せます。
 
@@ -39,3 +39,7 @@
 `*-day.jpg` の3枚は、3-3節でトーンを揃えるために差し替える昼の写真です。初稿（`index.html`）は差し替え前の写真のまま残しています。
 
 `moodboard/aurora-airways-moodboard.jpg` は著者が作成したもので、AI画像生成による画像を含みます。
+
+## アイコンクレジット
+
+`example-result/index.html` のサービス紹介アイコン4種（armchair・utensils-crossed・headset・shield-check）は [Lucide](https://lucide.dev/) を使用しています（ISC License：商用利用可・改変可）。3-4節の修正指示で差し替えたものです。
