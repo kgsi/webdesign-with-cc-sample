@@ -20,6 +20,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
@@ -125,9 +135,20 @@ ul {
   color: var(--link-blue);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .login-link {
   font-size: 14px;
   font-weight: 500;
+}
+
+.nav-toggle,
+.nav-toggle-button {
+  display: none;
 }
 
 /* ヒーロー */
@@ -240,6 +261,15 @@ ul {
 }
 
 /* セクション共通 */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* 検索カードはセクション上端から始まるため、着地位置を深めにとる */
+section.search {
+  scroll-margin-top: 160px;
+}
+
 .destinations,
 .offers {
   padding: 80px 0;
@@ -452,8 +482,55 @@ ul {
 
 /* レスポンシブ */
 @media (max-width: 900px) {
+  .nav-toggle-button {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .nav-toggle-button svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  .nav-toggle-button .icon-close {
+    display: none;
+  }
+
+  .nav-toggle:checked ~ .header-actions .icon-menu {
+    display: none;
+  }
+
+  .nav-toggle:checked ~ .header-actions .icon-close {
+    display: block;
+  }
+
   .global-nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 8px 24px 16px;
+  }
+
+  .nav-toggle:checked ~ .global-nav {
+    display: block;
+  }
+
+  .global-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .global-nav a {
+    display: block;
+    padding: 12px 0;
   }
 
   .hero-title {
@@ -469,7 +546,7 @@ ul {
   }
 
   .offer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -486,11 +563,25 @@ ul {
     font-size: 28px;
   }
 
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
   .destination-grid {
     grid-template-columns: 1fr;
   }
 
   .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-grid {
     grid-template-columns: 1fr;
   }
 
