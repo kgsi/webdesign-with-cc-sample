@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CELESTE AIRWAYS | まだ見ぬ世界へ、心地よい空の旅を。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4L28 28H21L16 17L11 28H4L16 4Z" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">CELESTE<br><small>AIRWAYS</small></span>
+      </a>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="#destinations">旅先を探す</a></li>
+          <li><a href="#services">ご旅行の計画</a></li>
+          <li><a href="#services">ご搭乗サポート</a></li>
+          <li><a href="#offers">Celeste Club</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="login-link">ログイン</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <h1 class="hero-title">まだ見ぬ世界へ、<br>心地よい空の旅を。</h1>
+      <p class="hero-lead">CELESTE AIRWAYSは、安全と快適さを追求し、心に残る旅の時間をお届けします。</p>
+      <a href="#search" class="btn btn-primary">今すぐ予約する</a>
+    </div>
+  </section>
+
+  <!-- 検索フォーム -->
+  <section class="search" id="search">
+    <div class="container">
+      <div class="search-card">
+        <div class="search-tabs">
+          <input type="radio" name="trip-type" id="round-trip" checked>
+          <label for="round-trip">往復</label>
+          <input type="radio" name="trip-type" id="one-way">
+          <label for="one-way">片道</label>
+          <input type="radio" name="trip-type" id="multi-city">
+          <label for="multi-city">複数都市</label>
+        </div>
+        <form class="search-form">
+          <div class="field">
+            <label for="from">出発地</label>
+            <input type="text" id="from" value="東京（HND）">
+          </div>
+          <div class="field">
+            <label for="to">到着地</label>
+            <input type="text" id="to" placeholder="到着地を入力">
+          </div>
+          <div class="field">
+            <label for="date">出発日</label>
+            <input type="date" id="date" value="2026-08-15">
+          </div>
+          <div class="field">
+            <label for="passengers">搭乗者・クラス</label>
+            <select id="passengers">
+              <option>1名・エコノミー</option>
+              <option>2名・エコノミー</option>
+              <option>1名・ビジネス</option>
+              <option>2名・ビジネス</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary search-submit">検索する</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- おすすめの旅先 -->
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">おすすめの旅先</h2>
+        <a href="#" class="section-link">すべての旅先を見る →</a>
+      </div>
+      <div class="destination-grid">
+        <a href="#" class="destination-card">
+          <img src="../images/dest-paris.jpg" alt="パリの街並みとエッフェル塔">
+          <div class="destination-body">
+            <h3>パリ</h3>
+            <p class="destination-country">フランス</p>
+            <p class="destination-price">¥128,000〜</p>
+          </div>
+        </a>
+        <a href="#" class="destination-card">
+          <img src="../images/dest-newyork.jpg" alt="ニューヨークの摩天楼">
+          <div class="destination-body">
+            <h3>ニューヨーク</h3>
+            <p class="destination-country">アメリカ</p>
+            <p class="destination-price">¥138,000〜</p>
+          </div>
+        </a>
+        <a href="#" class="destination-card">
+          <img src="../images/dest-maldives.jpg" alt="モルディブの水上コテージ">
+          <div class="destination-body">
+            <h3>モルディブ</h3>
+            <p class="destination-country">モルディブ</p>
+            <p class="destination-price">¥158,000〜</p>
+          </div>
+        </a>
+        <a href="#" class="destination-card">
+          <img src="../images/dest-singapore.jpg" alt="シンガポールの夜景">
+          <div class="destination-body">
+            <h3>シンガポール</h3>
+            <p class="destination-country">シンガポール</p>
+            <p class="destination-price">¥98,000〜</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス紹介 -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">CELESTE AIRWAYSのサービス</h2>
+      <div class="service-grid">
+        <div class="service-item">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 18h16M6 15l3-8 3 3 4-6 2 11" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>快適な空の時間</h3>
+          <p>ゆとりのある座席と上質な空間で、くつろぎのひとときを。</p>
+        </div>
+        <div class="service-item">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M15 3c2 0 4 2 4 5s-2 5-4 5v8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>こだわりの機内食</h3>
+          <p>世界の味を取り入れた、季節感あふれるメニュー。</p>
+        </div>
+        <div class="service-item">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="8" width="14" height="12" rx="2"/>
+            <path d="M9 8V5a3 3 0 0 1 6 0v3" stroke-linecap="round"/>
+          </svg>
+          <h3>スムーズな旅をサポート</h3>
+          <p>充実のサポートで、安心・快適なご旅行を。</p>
+        </div>
+        <div class="service-item">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>安全への取り組み</h3>
+          <p>厳格な安全基準と最新の取り組みで、信頼のフライトを。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特別なオファー -->
+  <section class="offers" id="offers">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">今だけの特別なオファー</h2>
+        <a href="#" class="section-link">すべてのオファーを見る →</a>
+      </div>
+      <div class="offer-grid">
+        <a href="#" class="offer-card">
+          <img src="../images/offer-europe.jpg" alt="ヨーロッパの旧市街">
+          <div class="offer-body">
+            <p class="offer-tag">期間限定</p>
+            <h3>ヨーロッパ行き特別運賃</h3>
+            <p class="offer-price">最大20%OFF</p>
+            <span class="offer-link">詳細を見る →</span>
+          </div>
+        </a>
+        <a href="#" class="offer-card">
+          <img src="../images/offer-beach.jpg" alt="南国のビーチとヤシの木">
+          <div class="offer-body">
+            <p class="offer-tag">早期予約がお得</p>
+            <h3>南の楽園へ</h3>
+            <p class="offer-price">最大15%OFF</p>
+            <span class="offer-link">詳細を見る →</span>
+          </div>
+        </a>
+        <a href="#" class="offer-card">
+          <img src="../images/offer-club.jpg" alt="飛行機の窓から見る夕暮れの翼">
+          <div class="offer-body">
+            <p class="offer-tag">Celeste Club会員限定</p>
+            <h3>ボーナスマイルキャンペーン</h3>
+            <p class="offer-price">実施中</p>
+            <span class="offer-link">詳細を見る →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#" class="logo footer-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4L28 28H21L16 17L11 28H4L16 4Z" fill="currentColor"/>
+        </svg>
+      </a>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#destinations">旅先を探す</a></li>
+          <li><a href="#services">ご旅行の計画</a></li>
+          <li><a href="#services">ご搭乗サポート</a></li>
+          <li><a href="#offers">Celeste Club</a></li>
+          <li><a href="#">企業情報</a></li>
+        </ul>
+      </nav>
+      <p class="copyright">© 2026 CELESTE AIRWAYS（架空の航空会社です）</p>
+    </div>
+  </footer>
+
+</body>
+</html>
