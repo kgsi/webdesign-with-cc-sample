@@ -4,12 +4,14 @@
   --dark-navy: #0B1D33;
   --navy: #1E3A5F;
   --blue: #4A90D6;
+  --link-blue: #2B6CB0;
   --light-blue: #BBD7F0;
   --pale-blue: #EAF2F8;
   --white: #FFFFFF;
   --light-gray: #F3F5F7;
   --text: #0B1D33;
   --text-muted: #5A6B7E;
+  --text-muted-on-dark: #8FA5BC;
 }
 
 * {
@@ -120,7 +122,7 @@ ul {
 }
 
 .global-nav a:hover {
-  color: var(--blue);
+  color: var(--link-blue);
 }
 
 .login-link {
@@ -131,7 +133,7 @@ ul {
 /* ヒーロー */
 .hero {
   position: relative;
-  background: url('../../images/hero.jpg') center / cover no-repeat;
+  background: url('../../images/hero-day.jpg') center / cover no-repeat;
   padding: 140px 0;
   color: var(--white);
 }
@@ -139,7 +141,12 @@ ul {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 29, 51, 0.4);
+  background: linear-gradient(
+    to right,
+    rgba(11, 29, 51, 0.72) 0%,
+    rgba(11, 29, 51, 0.62) 60%,
+    rgba(11, 29, 51, 0.05) 100%
+  );
 }
 
 .hero-inner {
@@ -250,7 +257,7 @@ ul {
 .section-link {
   font-size: 14px;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--link-blue);
 }
 
 /* おすすめの旅先 */
@@ -376,7 +383,7 @@ ul {
   display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--link-blue);
   background: var(--pale-blue);
   padding: 2px 10px;
   border-radius: 100px;
@@ -398,7 +405,7 @@ ul {
 .offer-link {
   font-size: 14px;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--link-blue);
 }
 
 /* フッター */
@@ -437,7 +444,7 @@ ul {
 
 .copyright {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-muted-on-dark);
 }
 
 /* レスポンシブ */
