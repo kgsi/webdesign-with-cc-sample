@@ -3,13 +3,27 @@
    ========================================================================== */
 
 :root {
-  --color-primary: #D32F2F;
-  --color-accent: #FF6D00;
-  --color-accent-light: #FFB74D;
-  --color-pale-pink: #FFF1EB;
-  --color-light-gray: #F5F7FA;
-  --color-dark-gray: #333333;
-  --color-white: #FFFFFF;
+  /* ブランド */
+  --color-primary: #D32F2F;      /* 面と、24px以上の文字 */
+  --color-primary-text: #B71C1C; /* 24px未満の文字に使う濃い赤 */
+
+  /* 文字 */
+  --color-text: #333333;
+  --color-text-muted: #666666;   /* 主役ではない文字 */
+  --color-text-on-dark: #FFFFFF;
+
+  /* 地 */
+  --color-bg: #FFFFFF;           /* 基本の地。色のついた節に置くカードの地も兼ねる */
+  --color-bg-section: #FFF1EB;   /* 節を区切るための地 */
+  --color-bg-box: #F5F7FA;       /* 白い地の上に置くボックスの地 */
+  --color-bg-dark: #333333;      /* フッター */
+
+  /* 暗い地の上のアクセント */
+  --color-accent-on-dark: #FFB74D;
+
+  /* 罫線 */
+  --color-border: #E5E5E5;
+  --color-border-on-dark: #555555;
 }
 
 * {
@@ -20,8 +34,8 @@
 
 body {
   font-family: "Noto Sans JP", sans-serif;
-  color: var(--color-dark-gray);
-  background-color: var(--color-white);
+  color: var(--color-text);
+  background-color: var(--color-bg);
   line-height: 1.75;
   font-size: 16px;
 }
@@ -70,7 +84,7 @@ ul {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-text-on-dark);
 }
 
 .btn-primary::after {
@@ -78,7 +92,7 @@ ul {
 }
 
 .btn-outline {
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
@@ -89,8 +103,8 @@ ul {
 
 .btn-outline-light {
   background-color: transparent;
-  color: var(--color-white);
-  border: 1px solid var(--color-white);
+  color: var(--color-text-on-dark);
+  border: 1px solid var(--color-text-on-dark);
 }
 
 .btn-outline-light::after {
@@ -104,7 +118,7 @@ ul {
 
 .text-link {
   display: inline-block;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-weight: 700;
   font-size: 14px;
 }
@@ -118,7 +132,7 @@ ul {
 }
 
 .section-label {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-weight: 700;
   font-size: 14px;
   margin-bottom: 16px;
@@ -128,8 +142,8 @@ ul {
    ========================================================================== */
 
 .header {
-  background-color: var(--color-white);
-  border-bottom: 1px solid #E5E5E5;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -160,7 +174,7 @@ ul {
 }
 
 .global-nav a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .header-actions {
@@ -175,14 +189,14 @@ ul {
 }
 
 .login-link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 /* ヒーロー
    ========================================================================== */
 
 .hero {
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   padding: 80px 0;
 }
 
@@ -225,7 +239,7 @@ ul {
    ========================================================================== */
 
 .clients {
-  border-top: 1px solid #E5E5E5;
+  background-color: var(--color-bg-section);
   padding: 32px 0;
 }
 
@@ -256,14 +270,14 @@ ul {
 }
 
 .client-logos li {
-  color: #999999;
+  color: var(--color-text-muted);
   font-size: 14px;
   font-weight: 500;
 }
 
 .client-logos li::before {
   content: "◎ ";
-  color: #CCCCCC;
+  color: var(--color-text-muted);
 }
 
 /* 機能紹介
@@ -303,7 +317,7 @@ ul {
 }
 
 .feature-card {
-  border: 1px solid #E5E5E5;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 24px;
 }
@@ -329,7 +343,7 @@ ul {
    ========================================================================== */
 
 .cases {
-  background-color: var(--color-pale-pink);
+  background-color: var(--color-bg-section);
   padding: 80px 0;
 }
 
@@ -358,7 +372,7 @@ ul {
 }
 
 .case-card {
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   border-radius: 8px;
   padding: 24px;
 }
@@ -374,7 +388,7 @@ ul {
 .case-industry {
   font-size: 12px;
   line-height: 1.67;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -408,7 +422,7 @@ ul {
 
 .pricing-box,
 .trial-box {
-  background-color: var(--color-light-gray);
+  background-color: var(--color-bg-box);
   border-radius: 8px;
   padding: 40px;
   display: flex;
@@ -429,10 +443,6 @@ ul {
   margin-bottom: 16px;
 }
 
-.trial-box {
-  background-color: var(--color-pale-pink);
-}
-
 .trial-box p {
   font-size: 16px;
 }
@@ -445,8 +455,8 @@ ul {
    ========================================================================== */
 
 .footer {
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
   padding: 64px 0 24px;
 }
 
@@ -461,7 +471,7 @@ ul {
 }
 
 .footer-logo {
-  color: var(--color-white);
+  color: var(--color-text-on-dark);
   margin-bottom: 16px;
 }
 
@@ -478,7 +488,7 @@ ul {
 }
 
 .sns-links a:hover {
-  color: var(--color-accent-light);
+  color: var(--color-accent-on-dark);
 }
 
 .footer-nav {
@@ -499,7 +509,7 @@ ul {
 }
 
 .footer-nav-column a:hover {
-  color: var(--color-accent-light);
+  color: var(--color-accent-on-dark);
 }
 
 .footer-cta {
@@ -519,7 +529,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #555555;
+  border-top: 1px solid var(--color-border-on-dark);
   margin-top: 48px;
   padding-top: 24px;
 }
