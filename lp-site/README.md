@@ -22,4 +22,4 @@
 
 `images/` のイラストと `moodboard/` のムードボードは、著者がAI画像生成で作成したものです。
 
-`example-result/index.html` のフッターにあるSNSアイコンは、[Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1（MIT License）のSVGを埋め込んでいます。
+`example-result/index.html` のフッターにあるSNSアイコンと、ヘッダーのメニュー開閉ボタンのアイコンは、[Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1（MIT License）のSVGを埋め込んでいます。

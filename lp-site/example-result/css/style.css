@@ -65,6 +65,25 @@ ul {
   color: var(--color-primary);
 }
 
+/* 画面には出さないが、支援技術には読ませる文字 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* 色が変わるホバーは、どれも同じ速さでそろえる。
+   下線が出るだけのリンクは、切り替えを瞬時のままにする */
+.btn,
+.global-nav a,
+.footer-nav-column a,
+.sns-links a {
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
 /* ボタン
    ========================================================================== */
 
@@ -77,21 +96,22 @@ ul {
   font-weight: 700;
   font-size: 16px;
   text-align: center;
-  transition: opacity 0.3s;
+  /* ボタンの中の文字は折り返さない。箱の高さを一定に保つため */
+  white-space: nowrap;
 }
 
 .btn::after {
   content: " →";
 }
 
-.btn:hover {
-  opacity: 0.8;
-}
-
 /* 塗りのボタン。ページの主目的に1つ */
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-text-on-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-text);
 }
 
 /* 枠線のボタン。主目的に添える2番手 */
@@ -101,10 +121,21 @@ ul {
   border-color: var(--color-primary);
 }
 
+.btn-outline:hover {
+  color: var(--color-primary-text);
+  border-color: var(--color-primary-text);
+}
+
 /* 暗い地に置く枠線のボタン */
 .btn-outline.on-dark {
   color: var(--color-text-on-dark);
   border-color: var(--color-text-on-dark);
+}
+
+/* 暗い地では濃くできないので、フッターのリンクと同じアクセント色にそろえる */
+.btn-outline.on-dark:hover {
+  color: var(--color-accent-on-dark);
+  border-color: var(--color-accent-on-dark);
 }
 
 /* 小さいボタン。ヘッダーだけに使う */
@@ -174,19 +205,11 @@ ul {
   color: var(--color-primary-text);
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.login-link {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.login-link:hover {
-  color: var(--color-primary-text);
+/* 開閉のしくみは狭い画面だけで使う。
+   広い画面ではキーボードの移動先にも出したくないので、消しておく */
+.nav-toggle,
+.nav-toggle-button {
+  display: none;
 }
 
 /* ヒーロー
@@ -221,6 +244,7 @@ ul {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 
@@ -417,19 +441,18 @@ ul {
   gap: 24px;
 }
 
+/* 文とボタンは横に並べず、上下に積む。横並びだと幅が狭まったときに
+   文だけが縮んで、見出しが1文字ずつの縦列に潰れてしまう */
 .pricing-box,
 .trial-box {
   background-color: var(--color-bg-box);
   border-radius: 8px;
   padding: 40px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
 }
 
 .pricing-box-text,
 .trial-box-text {
-  flex: 1;
+  margin-bottom: 24px;
 }
 
 .pricing-box h2,
@@ -446,10 +469,6 @@ ul {
   font-size: 16px;
 }
 
-.pricing-box .btn,
-.trial-box .btn {
-  flex-shrink: 0;
-}
 
 /* フッター
    ========================================================================== */
@@ -555,11 +574,119 @@ ul {
 }
 
 /* レスポンシブ
-   ========================================================================== */
+   ==========================================================================
+   切り替え点は2つだけ。それぞれ役割を分ける。
+   1100px … 文字の段を1つ下げる（見出しが1行に入りきらなくなる幅）
+    900px … 横並びを縦積みに変える（2列が窮屈になる幅） */
 
+/* 文字の段を1つ下げる。40px→28px、28px→20px。
+   20pxより小さい段は、下げると本文の16pxと見分けがつかなくなるので変えない */
+@media screen and (max-width: 1100px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .features-head h2,
+  .cases-head h2,
+  .pricing-box h2,
+  .trial-box h2 {
+    font-size: 20px;
+  }
+}
+
+/* 横並びを縦積みに変える */
 @media screen and (max-width: 900px) {
+  /* 開閉状態を持つチェックボックス。画面からは隠すが、
+     display: none にはしない。それだとキーボードで操作できなくなる */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  /* ナビは消さずに、開閉ボタンの中にしまう */
+  .nav-toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    /* アイコンの線をコンテナの余白24pxにそろえる */
+    margin-right: -10px;
+    cursor: pointer;
+  }
+
+  .nav-toggle-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-toggle:focus-visible ~ .nav-toggle-button {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* 閉じているあいだは閉じるアイコンを、開いたら開くアイコンを隠す */
+  .icon-close {
+    display: none;
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-button .icon-menu {
+    display: none;
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-button .icon-close {
+    display: block;
+  }
+
   .global-nav {
     display: none;
+  }
+
+  /* 開いたらヘッダーの真下に、画面の幅いっぱいで開く */
+  .nav-toggle:checked ~ .global-nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 8px 24px 16px;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .global-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* 行の端から端までを押せるようにする。高さは52px */
+  .global-nav a {
+    display: block;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  .header-inner {
+    gap: 8px;
+  }
+
+  .btn-sm {
+    margin-left: auto;
+    padding: 10px 12px;
+  }
+
+  /* 狭い画面のボタンは横に並べず、幅いっぱいに積む */
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .pricing-box .btn,
+  .trial-box .btn {
+    display: block;
   }
 
   .hero-inner,
@@ -570,10 +697,8 @@ ul {
     flex-direction: column;
   }
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
+  /* 縦に積んだら、どの塊も幅いっぱいにして左端をそろえる */
+  .hero-text,
   .features-head,
   .cases-head,
   .footer-brand,

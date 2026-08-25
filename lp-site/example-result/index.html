@@ -16,6 +16,8 @@
 <header class="header">
   <div class="container header-inner">
     <a href="#" class="logo">NAGARE</a>
+    <!-- メニューの開閉状態を持つチェックボックス。画面からは隠すが、キーボードからは操作できる -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav class="global-nav">
       <ul>
         <li><a href="#">プロダクト</a></li>
@@ -25,12 +27,16 @@
         <li><a href="#">セミナー</a></li>
         <li><a href="#">リソース</a></li>
         <li><a href="#">会社情報</a></li>
+        <li><a href="#">ログイン</a></li>
       </ul>
     </nav>
-    <div class="header-actions">
-      <a href="#" class="login-link">ログイン</a>
-      <a href="#" class="btn btn-primary btn-sm">無料で試してみる</a>
-    </div>
+    <a href="#" class="btn btn-primary btn-sm">無料で試してみる</a>
+    <!-- 開閉ボタンのアイコンは Bootstrap Icons v1.13.1（MIT License）から。https://icons.getbootstrap.com/ -->
+    <label for="nav-toggle" class="nav-toggle-button">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+      <span class="visually-hidden">メニュー</span>
+    </label>
   </div>
 </header>
 
@@ -41,7 +47,7 @@
     <div class="container hero-inner">
       <div class="hero-text">
         <h1>すべての業務をつなぎ、<br>ビジネスを<span class="accent">加速する</span>。</h1>
-        <p class="hero-lead">テクノロジーの力で、チームの生産性を最大化し、<br>ビジネスの成果を加速させます。</p>
+        <p class="hero-lead">テクノロジーの力で、チームの生産性を最大化し、ビジネスの成果を加速させます。</p>
         <div class="hero-buttons">
           <a href="#" class="btn btn-primary">無料で試してみる</a>
           <a href="#" class="btn btn-outline">資料をダウンロード</a>
