@@ -18,6 +18,8 @@
 
 `index.html` をブラウザで開くだけで表示できます。フォントはGoogle Fontsから読み込むため、初回表示時のみネット接続が必要です。
 
-## 画像クレジット
+## 画像・アイコンのクレジット
 
 `images/` のイラストと `moodboard/` のムードボードは、著者がAI画像生成で作成したものです。
+
+`example-result/index.html` のフッターにあるSNSアイコンは、[Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1（MIT License）のSVGを埋め込んでいます。

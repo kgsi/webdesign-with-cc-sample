@@ -35,4 +35,5 @@ git clone https://github.com/kgsi/webdesign-with-cc-sample.git
 - このリポジトリのコードとドキュメントは [MIT License](./LICENSE) で提供します
 - `ec-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は同フォルダの `README.md` に記載しています
 - `lp-site/images/` のイラストと `lp-site/moodboard/` のムードボードは、著者がAI画像生成で作成したものです
+- `lp-site/example-result/index.html` のSNSアイコンは [Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1 のSVGを埋め込んだもので、MIT Licenseで提供されています
 - `skill-compare/with-skill/.claude/skills/frontend-design/` は [Anthropic公開のSkill](https://github.com/anthropics/skills) の実物で、Apache License 2.0 で提供されています（ライセンス全文を同フォルダに同梱）
