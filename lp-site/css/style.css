@@ -214,7 +214,11 @@ ul {
 }
 
 .hero-image {
-  flex: 1;
+  flex: 1.3;
+}
+
+.hero-image img {
+  width: 100%;
 }
 
 /* 導入実績
