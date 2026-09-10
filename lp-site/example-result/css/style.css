@@ -1,17 +1,29 @@
-/* AURORA AIRWAYS ランディングページ */
+/* ==========================================================================
+   NAGARE ランディングページ
+   ========================================================================== */
 
 :root {
-  --dark-navy: #0B1D33;
-  --navy: #1E3A5F;
-  --blue: #4A90D6;
-  --link-blue: #2B6CB0;
-  --light-blue: #BBD7F0;
-  --pale-blue: #EAF2F8;
-  --white: #FFFFFF;
-  --light-gray: #F3F5F7;
-  --text: #0B1D33;
-  --text-muted: #5A6B7E;
-  --text-muted-on-dark: #8FA5BC;
+  /* ブランド */
+  --color-primary: #D32F2F;      /* 面と、24px以上の文字 */
+  --color-primary-text: #B71C1C; /* 24px未満の文字に使う濃い赤 */
+
+  /* 文字 */
+  --color-text: #333333;
+  --color-text-muted: #666666;   /* 主役ではない文字 */
+  --color-text-on-dark: #FFFFFF;
+
+  /* 地 */
+  --color-bg: #FFFFFF;           /* 基本の地。色のついた節に置くカードの地も兼ねる */
+  --color-bg-section: #FFF1EB;   /* 節を区切るための地 */
+  --color-bg-box: #F5F7FA;       /* 白い地の上に置くボックスの地 */
+  --color-bg-dark: #333333;      /* フッター */
+
+  /* 暗い地の上のアクセント */
+  --color-accent-on-dark: #FFB74D;
+
+  /* 罫線 */
+  --color-border: #E5E5E5;
+  --color-border-on-dark: #555555;
 }
 
 * {
@@ -20,26 +32,17 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.7;
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.75;
+  font-size: 16px;
 }
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -53,37 +56,122 @@ ul {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* ボタン */
+.accent {
+  color: var(--color-primary);
+}
+
+/* 画面には出さないが、支援技術には読ませる文字 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* 色が変わるホバーは、どれも同じ速さでそろえる。
+   下線が出るだけのリンクは、切り替えを瞬時のままにする */
+.btn,
+.global-nav a,
+.footer-nav-column a,
+.sns-links a {
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* ボタン
+   ========================================================================== */
+
 .btn {
   display: inline-block;
-  padding: 14px 32px;
-  border: none;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 16px;
+  padding: 16px 32px;
+  /* 塗りのボタンと枠線のボタンで箱の高さがそろうように、透明な枠線を持たせる */
+  border: 1px solid transparent;
+  border-radius: 4px;
   font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  font-size: 16px;
+  text-align: center;
+  /* ボタンの中の文字は折り返さない。箱の高さを一定に保つため */
+  white-space: nowrap;
 }
 
+.btn::after {
+  content: " →";
+}
+
+/* 塗りのボタン。ページの主目的に1つ */
 .btn-primary {
-  background: var(--navy);
-  color: var(--white);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
 }
 
-.btn:hover {
-  opacity: 0.85;
+.btn-primary:hover {
+  background-color: var(--color-primary-text);
 }
 
-/* ヘッダー */
-.site-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--light-gray);
+/* 枠線のボタン。主目的に添える2番手 */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  color: var(--color-primary-text);
+  border-color: var(--color-primary-text);
+}
+
+/* 暗い地に置く枠線のボタン */
+.btn-outline.on-dark {
+  color: var(--color-text-on-dark);
+  border-color: var(--color-text-on-dark);
+}
+
+/* 暗い地では濃くできないので、フッターのリンクと同じアクセント色にそろえる */
+.btn-outline.on-dark:hover {
+  color: var(--color-accent-on-dark);
+  border-color: var(--color-accent-on-dark);
+}
+
+/* 小さいボタン。ヘッダーだけに使う */
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--color-primary-text);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.text-link::after {
+  content: " →";
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.section-label {
+  color: var(--color-primary-text);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* ヘッダー
+   ========================================================================== */
+
+.header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -97,33 +185,15 @@ ul {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--navy);
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-}
-
-.logo-text {
+  font-size: 24px;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.1;
+  color: var(--color-primary);
   letter-spacing: 0.05em;
-}
-
-.logo-text small {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
 }
 
 .global-nav ul {
   display: flex;
-  gap: 32px;
+  gap: 24px;
 }
 
 .global-nav a {
@@ -132,395 +202,460 @@ ul {
 }
 
 .global-nav a:hover {
-  color: var(--link-blue);
+  color: var(--color-primary-text);
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.login-link {
-  font-size: 14px;
-  font-weight: 500;
-}
-
+/* 開閉のしくみは狭い画面だけで使う。
+   広い画面ではキーボードの移動先にも出したくないので、消しておく */
 .nav-toggle,
 .nav-toggle-button {
   display: none;
 }
 
-/* ヒーロー */
-.hero {
-  position: relative;
-  background: url('../../images/hero-day.jpg') center / cover no-repeat;
-  padding: 140px 0;
-  color: var(--white);
-}
+/* ヒーロー
+   ========================================================================== */
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(11, 29, 51, 0.72) 0%,
-    rgba(11, 29, 51, 0.62) 60%,
-    rgba(11, 29, 51, 0.05) 100%
-  );
+.hero {
+  background-color: var(--color-bg);
+  padding: 80px 0;
 }
 
 .hero-inner {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-.hero-title {
-  font-size: 48px;
+.hero-text {
+  flex: 1;
+}
+
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.35;
   font-weight: 700;
-  line-height: 1.4;
   margin-bottom: 24px;
 }
 
 .hero-lead {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 32px;
 }
 
-/* 検索フォーム */
-.search {
-  padding: 0 0 60px;
-  background: var(--pale-blue);
-}
-
-.search-card {
-  position: relative;
-  z-index: 10;
-  margin-top: -72px;
-  background: var(--white);
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 4px 16px rgba(11, 29, 51, 0.08);
-}
-
-.search-tabs {
+.hero-buttons {
   display: flex;
-  gap: 24px;
-  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.search-tabs input {
-  display: none;
+.hero-image {
+  flex: 1.3;
 }
 
-.search-tabs label {
+.hero-image img {
+  width: 100%;
+}
+
+/* 導入実績
+   ========================================================================== */
+
+.clients {
+  background-color: var(--color-bg-section);
+  padding: 32px 0;
+}
+
+.clients-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.clients-count {
+  font-size: 16px;
+  font-weight: 700;
+  border-left: 4px solid var(--color-primary);
+  padding-left: 16px;
+  white-space: nowrap;
+}
+
+.clients-count strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.client-logos {
+  display: flex;
+  gap: 48px;
+  flex: 1;
+}
+
+.client-logos li {
+  color: var(--color-text-muted);
   font-size: 14px;
   font-weight: 500;
-  padding-bottom: 6px;
-  cursor: pointer;
-  color: var(--text-muted);
 }
 
-.search-tabs input:checked + label {
-  color: var(--navy);
-  border-bottom: 2px solid var(--navy);
+/* カード
+   ムードボードのUIコンポーネントで定義された1つの型。
+   画像 → 見出し → 本文 → 区切り線 → リンクの順で並べる。
+   機能カードも事例カードもこの定義を共有し、地の違いだけを各自が持つ。
+   ========================================================================== */
+
+.card {
+  border-radius: 8px;
+  padding: 24px;
 }
 
-.search-form {
-  display: flex;
-  gap: 16px;
-  align-items: flex-end;
-  flex-wrap: wrap;
+.card img {
+  margin-bottom: 16px;
+  border-radius: 4px;
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-  min-width: 160px;
-}
-
-.field label {
-  font-size: 12px;
+.card h3 {
+  font-size: 20px;
+  line-height: 1.6;
   font-weight: 500;
-  color: var(--text-muted);
+  text-wrap: balance;
+  margin-bottom: 8px;
 }
 
-.field input,
-.field select {
-  font-family: inherit;
-  font-size: 16px;
-  padding: 12px;
-  border: 1px solid #D0D8E0;
-  border-radius: 6px;
-  background: var(--white);
+.card p {
+  font-size: 14px;
 }
 
-.search-submit {
+.card .text-link {
+  display: block;
+  border-top: 1px solid var(--color-border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+/* 白い地に置くカード。地で分けられないので枠線で囲む */
+.feature-card {
+  border: 1px solid var(--color-border);
+}
+
+/* 色のついた地に置くカード。白い地で浮かせるので枠線はいらない */
+.case-card {
+  background-color: var(--color-bg);
+}
+
+/* 機能紹介
+   ========================================================================== */
+
+.features {
+  padding: 80px 0;
+}
+
+.features-inner {
+  display: flex;
+  gap: 48px;
+}
+
+.features-head {
+  width: 340px;
   flex-shrink: 0;
 }
 
-/* セクション共通 */
-section[id] {
-  scroll-margin-top: 88px;
-}
-
-/* 検索カードはセクション上端から始まるため、着地位置を深めにとる */
-section.search {
-  scroll-margin-top: 160px;
-}
-
-.destinations,
-.offers {
-  padding: 80px 0;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-.section-title {
-  font-size: 32px;
+.features-head h2 {
+  font-size: 28px;
+  line-height: 1.43;
   font-weight: 700;
+  margin-bottom: 24px;
 }
 
-.section-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--link-blue);
+.features-head p {
+  font-size: 16px;
+  margin-bottom: 24px;
 }
 
-/* おすすめの旅先 */
-.destination-grid {
+.feature-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  flex: 1;
 }
 
-.destination-card {
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(11, 29, 51, 0.08);
-  transition: box-shadow 0.2s;
-}
+/* 導入事例
+   ========================================================================== */
 
-.destination-card:hover {
-  box-shadow: 0 8px 24px rgba(11, 29, 51, 0.16);
-}
-
-.destination-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.destination-body {
-  padding: 16px;
-}
-
-.destination-body h3 {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.destination-country {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.destination-price {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  margin-top: 8px;
-}
-
-/* サービス紹介 */
-.services {
+.cases {
+  background-color: var(--color-bg-section);
   padding: 80px 0;
-  background: var(--dark-navy);
-  color: var(--white);
 }
 
-.services .section-title {
-  text-align: center;
-  margin-bottom: 48px;
+.cases-inner {
+  display: flex;
+  gap: 48px;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+.cases-head {
+  width: 340px;
+  flex-shrink: 0;
 }
 
-.service-item {
-  text-align: center;
-}
-
-.service-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 16px;
-  color: var(--light-blue);
-}
-
-.service-item h3 {
-  font-size: 18px;
+.cases-head h2 {
+  font-size: 28px;
+  line-height: 1.43;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
-.service-item p {
-  font-size: 14px;
-  color: var(--light-blue);
-}
-
-/* 特別なオファー */
-.offers {
-  background: var(--light-gray);
-}
-
-.offer-grid {
+.case-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  flex: 1;
 }
 
-.offer-card {
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(11, 29, 51, 0.08);
-  transition: box-shadow 0.2s;
-}
-
-.offer-card:hover {
-  box-shadow: 0 8px 24px rgba(11, 29, 51, 0.16);
-}
-
-.offer-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.offer-body {
-  padding: 20px;
-}
-
-.offer-tag {
-  display: inline-block;
+.case-card .case-industry {
   font-size: 12px;
+  line-height: 1.67;
+  color: var(--color-text-muted);
   font-weight: 500;
-  color: var(--link-blue);
-  background: var(--pale-blue);
-  padding: 2px 10px;
-  border-radius: 100px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.offer-body h3 {
-  font-size: 18px;
+/* 業種の前の四角。文字の「■」ではなく図形として組む */
+.case-card .case-industry::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 1px;
+  background-color: var(--color-primary);
+}
+
+/* 料金・トライアル
+   ========================================================================== */
+
+.pricing {
+  padding: 80px 0;
+}
+
+.pricing-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* 文とボタンは横に並べず、上下に積む。横並びだと幅が狭まったときに
+   文だけが縮んで、見出しが1文字ずつの縦列に潰れてしまう */
+.pricing-box,
+.trial-box {
+  background-color: var(--color-bg-box);
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.pricing-box-text,
+.trial-box-text {
+  margin-bottom: 24px;
+}
+
+.pricing-box h2,
+.trial-box h2 {
+  font-size: 28px;
+  line-height: 1.43;
   font-weight: 700;
+  text-wrap: balance;
+  margin-bottom: 16px;
 }
 
-.offer-price {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--navy);
-  margin: 4px 0 12px;
+.pricing-box p,
+.trial-box p {
+  font-size: 16px;
 }
 
-.offer-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--link-blue);
-}
 
-/* フッター */
-.site-footer {
-  background: var(--dark-navy);
-  color: var(--white);
-  padding: 40px 0;
+/* フッター
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  padding: 64px 0 24px;
 }
 
 .footer-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
+  gap: 48px;
+}
+
+.footer-brand {
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .footer-logo {
-  color: var(--white);
+  color: var(--color-text-on-dark);
+  margin-bottom: 16px;
 }
 
-.footer-nav ul {
+.footer-description {
+  font-size: 12px;
+  line-height: 1.67;
+  margin-bottom: 24px;
+}
+
+.sns-links {
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.footer-nav a {
+.sns-links a {
+  display: block;
+}
+
+.sns-links svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.sns-links a:hover {
+  color: var(--color-accent-on-dark);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 48px;
+  flex: 1;
+}
+
+.footer-nav-column h4 {
   font-size: 14px;
-  color: var(--light-blue);
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
-.footer-nav a:hover {
-  color: var(--white);
+.footer-nav-column li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-nav-column a:hover {
+  color: var(--color-accent-on-dark);
+}
+
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-on-dark);
+  margin-top: 48px;
+  padding-top: 24px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 32px;
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
 }
 
 .copyright {
   font-size: 12px;
-  color: var(--text-muted-on-dark);
+  line-height: 1.67;
 }
 
-/* レスポンシブ */
-@media (max-width: 900px) {
-  .nav-toggle-button {
+/* レスポンシブ
+   ==========================================================================
+   切り替え点は2つだけ。それぞれ役割を分ける。
+   1100px … 文字の段を1つ下げる（見出しが1行に入りきらなくなる幅）
+    900px … 横並びを縦積みに変える（2列が窮屈になる幅） */
+
+/* 文字の段を1つ下げる。40px→28px、28px→20px。
+   20pxより小さい段は、下げると本文の16pxと見分けがつかなくなるので変えない */
+@media screen and (max-width: 1100px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .features-head h2,
+  .cases-head h2,
+  .pricing-box h2,
+  .trial-box h2 {
+    font-size: 20px;
+  }
+}
+
+/* 横並びを縦積みに変える */
+@media screen and (max-width: 900px) {
+  /* 開閉状態を持つチェックボックス。画面からは隠すが、
+     display: none にはしない。それだとキーボードで操作できなくなる */
+  .nav-toggle {
     display: block;
-    width: 24px;
-    height: 24px;
-    color: var(--navy);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  /* ナビは消さずに、開閉ボタンの中にしまう */
+  .nav-toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    /* アイコンの線をコンテナの余白24pxにそろえる */
+    margin-right: -10px;
     cursor: pointer;
   }
 
   .nav-toggle-button svg {
     width: 24px;
     height: 24px;
-    display: block;
   }
 
-  .nav-toggle-button .icon-close {
+  .nav-toggle:focus-visible ~ .nav-toggle-button {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* 閉じているあいだは閉じるアイコンを、開いたら開くアイコンを隠す */
+  .icon-close {
     display: none;
   }
 
-  .nav-toggle:checked ~ .header-actions .icon-menu {
+  .nav-toggle:checked ~ .nav-toggle-button .icon-menu {
     display: none;
   }
 
-  .nav-toggle:checked ~ .header-actions .icon-close {
+  .nav-toggle:checked ~ .nav-toggle-button .icon-close {
     display: block;
   }
 
   .global-nav {
     display: none;
+  }
+
+  /* 開いたらヘッダーの真下に、画面の幅いっぱいで開く */
+  .nav-toggle:checked ~ .global-nav {
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--white);
-    border-bottom: 1px solid var(--light-gray);
     padding: 8px 24px 16px;
-  }
-
-  .nav-toggle:checked ~ .global-nav {
-    display: block;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .global-nav ul {
@@ -528,65 +663,68 @@ section.search {
     gap: 0;
   }
 
+  /* 行の端から端までを押せるようにする。高さは52px */
   .global-nav a {
     display: block;
     padding: 12px 0;
+    font-size: 16px;
   }
 
-  .hero-title {
-    font-size: 34px;
-  }
-
-  .destination-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .offer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .hero {
-    padding: 80px 0;
-  }
-
-  .search-card {
-    margin-top: -48px;
-  }
-
-  .hero-title {
-    font-size: 28px;
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
+  .header-inner {
     gap: 8px;
   }
 
-  .section-title {
-    font-size: 24px;
+  .btn-sm {
+    margin-left: auto;
+    padding: 10px 12px;
   }
 
-  .destination-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .search-form {
+  /* 狭い画面のボタンは横に並べず、幅いっぱいに積む */
+  .hero-buttons {
     flex-direction: column;
-    align-items: stretch;
+  }
+
+  .pricing-box .btn,
+  .trial-box .btn {
+    display: block;
+  }
+
+  .hero-inner,
+  .features-inner,
+  .cases-inner,
+  .clients-inner,
+  .footer-inner {
+    flex-direction: column;
+  }
+
+  /* 縦に積んだら、どの塊も幅いっぱいにして左端をそろえる */
+  .hero-text,
+  .features-head,
+  .cases-head,
+  .footer-brand,
+  .footer-cta {
+    width: 100%;
+  }
+
+  .feature-cards,
+  .case-cards,
+  .pricing-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .client-logos {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
   }
 }
