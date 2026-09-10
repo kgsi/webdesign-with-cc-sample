@@ -10,6 +10,7 @@
 | `ec-site/` | 2-3　ミニ実践：シンプルなECサイトを作る | ミニ実践の完成形。トップ＋商品詳細の2ページ構成の静的サイトで、`CLAUDE.md`・`DESIGN.md`・ムードボードなど本文で扱うコンテキストファイルも含む |
 | `skill-compare/` | 2-6　Skillsで繰り返しの作業を制作ルール化する | frontend-design Skillのあり・なしだけを変えて、同一プロンプトから生成した2つの出力の比較 |
 | `lp-site/` | 第3章　Claude Codeでデザイン判断を磨く | 第3章でレビューの題材にする、架空の業務プラットフォームSaaS「NAGARE」のランディングページ。ブリーフ・ムードボード・イラスト素材と、Claude Codeが生成した初稿、修正指示を順に適用した完成例 |
+| `corporate-site/` | 第5章　実践：制作ルールを持ったWebサイトをつくる | 架空のテック系企業「NOVARC」のコーポレートサイト。要件・情報設計・トーン設計のメモ、初稿と改善版、`DESIGN.md`・`CLAUDE.md` を適用した最終版（トップ＋ニュース一覧）、公開前チェックの記録と制作ログ |
 
 各フォルダの詳しい使い方は、それぞれの `README.md` を参照してください。
 
@@ -34,6 +35,7 @@ git clone https://github.com/kgsi/webdesign-with-cc-sample.git
 
 - このリポジトリのコードとドキュメントは [MIT License](./LICENSE) で提供します
 - `ec-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は同フォルダの `README.md` に記載しています
+- `corporate-site/images/` の写真も Unsplash の素材で、撮影者と出典の一覧は同フォルダの `README.md` に記載しています
 - `lp-site/images/` のイラストと `lp-site/moodboard/` のムードボードは、著者がAI画像生成で作成したものです
 - `lp-site/example-result/index.html` のSNSアイコンとメニュー開閉ボタンのアイコンは [Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1 のSVGを埋め込んだもので、MIT Licenseで提供されています
 - `skill-compare/with-skill/.claude/skills/frontend-design/` は [Anthropic公開のSkill](https://github.com/anthropics/skills) の実物で、Apache License 2.0 で提供されています（ライセンス全文を同フォルダに同梱）
