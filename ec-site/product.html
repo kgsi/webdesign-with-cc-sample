@@ -41,9 +41,9 @@
     </div>
 
     <!-- ===================== ヘッダー ===================== -->
+    <input type="checkbox" id="nav-toggle" class="peer hidden" />
     <header class="sticky top-0 z-40 border-b border-charcoal/5 bg-stone/85 backdrop-blur-md">
       <div class="mx-auto flex h-16 max-w-site items-center justify-between px-6">
-        <input type="checkbox" id="nav-toggle" class="peer hidden" />
         <label for="nav-toggle" class="-ml-1 cursor-pointer p-1 md:hidden" aria-label="メニューを開く">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
@@ -80,6 +80,7 @@
         </div>
       </div>
 
+    </header>
       <!-- モバイルメニュー -->
       <div class="mobile-menu fixed inset-y-0 left-0 z-50 w-72 -translate-x-full bg-stone px-6 py-6 shadow-xl md:hidden">
         <div class="mb-10 flex items-center justify-between">
@@ -98,7 +99,7 @@
           <a href="index.html#about">ブランドについて</a>
         </nav>
       </div>
-    </header>
+    
 
     <!-- ===================== パンくず ===================== -->
     <div class="mx-auto max-w-site px-6 pt-8 text-[12px] tracking-wide text-charcoal/45">
