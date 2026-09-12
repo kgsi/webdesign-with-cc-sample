@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVARC Inc. | 信頼を、デザインする。</title>
+  <meta name="description" content="NOVARC Inc. は先進的なテクノロジーと確かな実績で、社会インフラの課題を解決する企業です。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // 色は tone.md の8色に限定する（extend ではなく上書きし、他の色を使えなくする）
+    tailwind.config = {
+      theme: {
+        colors: {
+          transparent: 'transparent',
+          current: 'currentColor',
+          'navy-950': '#0B1320',
+          'navy-900': '#111B27',
+          'teal-900': '#1F3537',
+          'slate-700': '#334155',
+          'slate-500': '#64748B',
+          'slate-200': '#E2E8F0',
+          white: '#FFFFFF',
+          accent: '#2563EB',
+        },
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+        },
+        extend: {
+          maxWidth: { container: '1280px' },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-white font-sans text-navy-900 text-[16px] leading-[28px] antialiased">
+
+  <!-- 1. ヘッダー -->
+  <header class="bg-navy-950 border-b border-slate-700">
+    <div class="mx-auto flex h-[72px] max-w-container items-center justify-between px-6 lg:px-20">
+      <a href="#" class="text-[20px] font-bold tracking-[0.2em] text-white">NOVARC</a>
+
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="グローバルナビゲーション">
+        <a href="#about" class="text-[14px] text-slate-200 hover:text-white">企業情報</a>
+        <a href="#business" class="text-[14px] text-slate-200 hover:text-white">事業紹介</a>
+        <a href="#technology" class="text-[14px] text-slate-200 hover:text-white">テクノロジー</a>
+        <a href="#sustainability" class="text-[14px] text-slate-200 hover:text-white">サステナビリティ</a>
+        <a href="#ir" class="text-[14px] text-slate-200 hover:text-white">IR情報</a>
+        <a href="#" class="text-[14px] text-slate-200 hover:text-white">採用情報</a>
+        <a href="news.html" class="text-[14px] text-slate-200 hover:text-white">ニュース</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <p class="hidden lg:block text-[12px] leading-[20px] text-slate-500 tracking-[0.1em]">
+          <span class="text-white">JP</span> / <span>EN</span>
+        </p>
+        <a href="#" class="hidden lg:inline-flex h-10 items-center rounded-sm bg-white px-5 text-[14px] font-medium text-navy-950 hover:bg-slate-200">お問い合わせ</a>
+        <!-- 768px以下：ハンバーガー（開閉は実装しない） -->
+        <button type="button" class="lg:hidden flex h-10 w-10 items-center justify-center text-white" aria-label="メニュー">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. ヒーロー -->
+    <section class="relative flex min-h-[560px] items-center bg-navy-950 bg-cover bg-center lg:h-[720px]" style="background-image: url('images/hero.jpg');">
+      <div class="absolute inset-0 bg-navy-950/60" aria-hidden="true"></div>
+      <div class="relative mx-auto w-full max-w-container px-6 py-16 lg:px-20">
+        <div class="grid grid-cols-12 gap-6">
+          <div class="col-span-12 lg:col-span-7">
+            <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-200">NOVARC Inc.</p>
+            <h1 class="mt-4 text-[32px] font-bold leading-[44px] text-white lg:text-[40px] lg:leading-[56px]"><span class="block lg:inline">信頼を、</span>デザインする。</h1>
+            <p class="mt-6 text-slate-200">先進的なテクノロジーと確かな実績で、社会の課題を解決し、より良い未来をつくる。</p>
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#business" class="inline-flex h-12 items-center rounded-sm bg-white px-6 font-medium text-navy-950 hover:bg-slate-200">事業を見る</a>
+              <a href="#about" class="inline-flex h-12 items-center rounded-sm border border-slate-200 px-6 font-medium text-white hover:bg-white/10">企業情報</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. NEWS -->
+    <section id="news" class="bg-white py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">News</p>
+            <h2 class="mt-2 text-[24px] font-bold leading-[36px] lg:text-[28px] lg:leading-[40px]">ニュース</h2>
+          </div>
+          <a href="news.html" class="inline-flex shrink-0 items-center gap-2 text-accent hover:underline">一覧を見る<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <ul class="mt-10 border-t border-slate-200">
+          <li class="border-b border-slate-200">
+            <a href="#" class="flex flex-col gap-2 py-5 lg:flex-row lg:items-center lg:gap-8">
+              <div class="flex items-center gap-4 lg:w-[240px] lg:shrink-0">
+                <time datetime="2026-08-28" class="text-[12px] leading-[20px] text-slate-500">2026.08.28</time>
+                <span class="rounded-sm border border-accent px-2 text-[12px] leading-[20px] text-accent">IR</span>
+              </div>
+              <p class="text-navy-900 hover:text-accent">2027年3月期 第1四半期決算短信を公開しました</p>
+            </a>
+          </li>
+          <li class="border-b border-slate-200">
+            <a href="#" class="flex flex-col gap-2 py-5 lg:flex-row lg:items-center lg:gap-8">
+              <div class="flex items-center gap-4 lg:w-[240px] lg:shrink-0">
+                <time datetime="2026-08-12" class="text-[12px] leading-[20px] text-slate-500">2026.08.12</time>
+                <span class="rounded-sm border border-accent px-2 text-[12px] leading-[20px] text-accent">テクノロジー</span>
+              </div>
+              <p class="text-navy-900 hover:text-accent">次世代データセンター向け液冷プラットフォーム「NOVARC Flow」を発表</p>
+            </a>
+          </li>
+          <li class="border-b border-slate-200">
+            <a href="#" class="flex flex-col gap-2 py-5 lg:flex-row lg:items-center lg:gap-8">
+              <div class="flex items-center gap-4 lg:w-[240px] lg:shrink-0">
+                <time datetime="2026-07-30" class="text-[12px] leading-[20px] text-slate-500">2026.07.30</time>
+                <span class="rounded-sm border border-accent px-2 text-[12px] leading-[20px] text-accent">サステナビリティ</span>
+              </div>
+              <p class="text-navy-900 hover:text-accent">統合報告書2026を公開しました</p>
+            </a>
+          </li>
+          <li class="border-b border-slate-200">
+            <a href="#" class="flex flex-col gap-2 py-5 lg:flex-row lg:items-center lg:gap-8">
+              <div class="flex items-center gap-4 lg:w-[240px] lg:shrink-0">
+                <time datetime="2026-07-15" class="text-[12px] leading-[20px] text-slate-500">2026.07.15</time>
+                <span class="rounded-sm border border-accent px-2 text-[12px] leading-[20px] text-accent">お知らせ</span>
+              </div>
+              <p class="text-navy-900 hover:text-accent">本社オフィスを移転しました</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. TECHNOLOGY -->
+    <section id="technology" class="bg-navy-900 py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">Technology</p>
+        <h2 class="mt-2 text-[24px] font-bold leading-[36px] text-white lg:text-[28px] lg:leading-[40px]">未来を支えるテクノロジー</h2>
+        <p class="mt-4 max-w-[640px] text-slate-200">社会インフラを止めないために、計算基盤・通信・制御の3領域で研究開発を続けています。</p>
+
+        <div class="mt-12 grid grid-cols-12 gap-6">
+          <a href="#" class="group col-span-12 flex flex-col border border-slate-700 bg-navy-950 lg:col-span-4">
+            <div class="relative aspect-video w-full overflow-hidden"><img src="../../images/technology.jpg" alt="" class="h-full w-full object-cover object-[15%_30%] scale-125"><div class="absolute inset-0 bg-navy-900/60" aria-hidden="true"></div></div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px] text-white">高密度コンピューティング</h3>
+              <p class="mt-3 text-slate-200">液冷と電力制御を統合し、同じ床面積で従来比3倍の計算能力を実現します。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="#" class="group col-span-12 flex flex-col border border-slate-700 bg-navy-950 lg:col-span-4">
+            <div class="relative aspect-video w-full overflow-hidden"><img src="../../images/technology.jpg" alt="" class="h-full w-full object-cover object-center"><div class="absolute inset-0 bg-navy-900/60" aria-hidden="true"></div></div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px] text-white">自律型ネットワーク制御</h3>
+              <p class="mt-3 text-slate-200">トラフィックの変化を予測し、障害の前に経路を組み替える通信基盤です。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="#" class="group col-span-12 flex flex-col border border-slate-700 bg-navy-950 lg:col-span-4">
+            <div class="relative aspect-video w-full overflow-hidden"><img src="../../images/technology.jpg" alt="" class="h-full w-full object-cover object-[85%_70%] scale-150"><div class="absolute inset-0 bg-navy-900/60" aria-hidden="true"></div></div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px] text-white">エネルギーマネジメント</h3>
+              <p class="mt-3 text-slate-200">再生可能エネルギーの変動を吸収し、需給を秒単位で最適化します。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ABOUT US -->
+    <section id="about" class="bg-white py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <div class="grid grid-cols-12 gap-6 lg:items-center">
+          <div class="col-span-12 lg:col-span-6">
+            <img src="../../images/about.jpg" alt="ガラス張りのオフィス通路" class="aspect-[4/3] w-full object-cover">
+          </div>
+          <div class="col-span-12 lg:col-span-5 lg:col-start-8">
+            <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">About Us</p>
+            <h2 class="mt-2 text-[24px] font-bold leading-[36px] lg:text-[28px] lg:leading-[40px]">技術と人で、社会に新たな価値を。</h2>
+            <p class="mt-6">NOVARCは、データセンター、通信ネットワーク、エネルギーの3つの領域で、社会インフラを支える技術を開発してきました。</p>
+            <p class="mt-4">技術だけでは課題は解決しません。現場を知る人と、それを支える技術を組み合わせ、長く使われる仕組みをつくることが、私たちの仕事です。</p>
+            <a href="#" class="mt-8 inline-flex h-12 items-center rounded-sm border border-slate-700 px-6 font-medium text-navy-900 hover:bg-slate-200">企業情報を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BUSINESS -->
+    <section id="business" class="bg-slate-200 py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">Business</p>
+        <h2 class="mt-2 text-[24px] font-bold leading-[36px] lg:text-[28px] lg:leading-[40px]">事業領域</h2>
+        <p class="mt-4 max-w-[640px]">インフラ、ネットワーク、エネルギー。3つの事業が連携し、社会の基盤を支えています。</p>
+
+        <div class="mt-12 grid grid-cols-12 gap-6">
+          <a href="#" class="col-span-12 flex flex-col bg-white lg:col-span-4">
+            <img src="../../images/business-datacenter.jpg" alt="データセンターのサーバーラック" class="aspect-video w-full object-cover">
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px]">インフラ事業</h3>
+              <p class="mt-3">データセンターの設計、構築、運用を一貫して手がけ、止まらない計算基盤を提供します。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="#" class="col-span-12 flex flex-col bg-white lg:col-span-4">
+            <img src="../../images/business-network.jpg" alt="光ファイバーネットワーク" class="aspect-video w-full object-cover">
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px]">ネットワーク事業</h3>
+              <p class="mt-3">通信事業者や自治体向けに、大規模ネットワークの構築と自律運用を支援します。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="#" class="col-span-12 flex flex-col bg-white lg:col-span-4">
+            <img src="../../images/business-energy.jpg" alt="風力発電所" class="aspect-video w-full object-cover">
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="text-[20px] font-medium leading-[32px]">エネルギー事業</h3>
+              <p class="mt-3">再生可能エネルギーの制御システムと蓄電の運用で、安定した電力供給を実現します。</p>
+              <span class="mt-auto flex justify-end pt-6 text-accent" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SUSTAINABILITY -->
+    <section id="sustainability" class="bg-white py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <div class="grid grid-cols-12 gap-6 lg:items-center">
+          <div class="order-1 col-span-12 lg:order-2 lg:col-span-6 lg:col-start-7">
+            <img src="../../images/sustainability.jpg" alt="霧に包まれた山並み" class="aspect-[4/3] w-full object-cover">
+          </div>
+          <div class="order-2 col-span-12 lg:order-1 lg:col-span-5">
+            <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">Sustainability</p>
+            <h2 class="mt-2 text-[24px] font-bold leading-[36px] lg:text-[28px] lg:leading-[40px]">持続可能な社会のために</h2>
+            <p class="mt-6">2030年までに自社データセンターの電力を100%再生可能エネルギーに切り替え、事業活動全体でのカーボンニュートラルを目指します。</p>
+            <p class="mt-4">環境だけでなく、多様な人材が長く働ける組織づくりと、地域社会への貢献を、経営の柱として位置づけています。</p>
+            <a href="#" class="mt-8 inline-flex h-12 items-center rounded-sm border border-slate-700 px-6 font-medium text-navy-900 hover:bg-slate-200">取り組みを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. INVESTOR RELATIONS -->
+    <section id="ir" class="bg-teal-900 py-16 lg:py-24">
+      <div class="mx-auto max-w-container px-6 lg:px-20">
+        <div class="grid grid-cols-12 gap-6">
+          <div class="col-span-12 lg:col-span-5">
+            <p class="text-[12px] leading-[20px] tracking-[0.2em] uppercase text-slate-500">Investor Relations</p>
+            <h2 class="mt-2 text-[24px] font-bold leading-[36px] text-white lg:text-[28px] lg:leading-[40px]">IR情報</h2>
+            <p class="mt-4 text-slate-200">株主・投資家の皆さまに向けて、業績、財務情報、経営方針を公開しています。</p>
+            <a href="#" class="mt-8 inline-flex h-12 items-center rounded-sm border border-white px-6 font-medium text-white hover:bg-white/10">IR情報を見る</a>
+          </div>
+          <ul class="col-span-12 border-t border-slate-700 lg:col-span-6 lg:col-start-7">
+            <li class="border-b border-slate-700">
+              <a href="#" class="flex items-center justify-between py-5 text-white hover:text-slate-200">
+                <span>決算短信</span>
+                <svg class="text-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </li>
+            <li class="border-b border-slate-700">
+              <a href="#" class="flex items-center justify-between py-5 text-white hover:text-slate-200">
+                <span>有価証券報告書</span>
+                <svg class="text-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </li>
+            <li class="border-b border-slate-700">
+              <a href="#" class="flex items-center justify-between py-5 text-white hover:text-slate-200">
+                <span>株主総会</span>
+                <svg class="text-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </li>
+            <li class="border-b border-slate-700">
+              <a href="#" class="flex items-center justify-between py-5 text-white hover:text-slate-200">
+                <span>IRカレンダー</span>
+                <svg class="text-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. フッター -->
+  <footer class="border-t border-slate-700 bg-navy-950 py-16">
+    <div class="mx-auto max-w-container px-6 lg:px-20">
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <p class="text-[20px] font-bold tracking-[0.2em] text-white">NOVARC</p>
+          <p class="mt-3 text-[14px] leading-[24px] text-slate-200">先進的なテクノロジーで、社会インフラの課題を解決する。</p>
+        </div>
+        <nav aria-label="サイトマップ">
+          <ul class="grid grid-cols-2 gap-x-10 gap-y-3 lg:flex lg:gap-8">
+            <li><a href="#about" class="text-[14px] text-slate-200 hover:text-white">企業情報</a></li>
+            <li><a href="#business" class="text-[14px] text-slate-200 hover:text-white">事業紹介</a></li>
+            <li><a href="#technology" class="text-[14px] text-slate-200 hover:text-white">テクノロジー</a></li>
+            <li><a href="#sustainability" class="text-[14px] text-slate-200 hover:text-white">サステナビリティ</a></li>
+            <li><a href="#ir" class="text-[14px] text-slate-200 hover:text-white">IR情報</a></li>
+            <li><a href="#" class="text-[14px] text-slate-200 hover:text-white">採用情報</a></li>
+            <li><a href="news.html" class="text-[14px] text-slate-200 hover:text-white">ニュース</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-6 border-t border-slate-700 pt-8 lg:flex-row lg:items-center lg:justify-between">
+        <p class="text-[12px] leading-[20px] text-slate-500">© 2026 NOVARC Inc.</p>
+        <ul class="flex items-center gap-5">
+          <li>
+            <a href="#" class="text-slate-200 hover:text-white" aria-label="X">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-slate-200 hover:text-white" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-slate-200 hover:text-white" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
