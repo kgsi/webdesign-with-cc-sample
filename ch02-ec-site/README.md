@@ -32,7 +32,7 @@
 ## 📂 ファイル構成
 
 ```
-demo-ec-site/
+ch02-ec-site/
 ├── index.html      # トップページ
 ├── product.html    # 商品詳細ページ（リネンシャツ）
 ├── css/

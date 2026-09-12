@@ -5,7 +5,7 @@ Anthropic公式の frontend-design Skill の有無だけを変えて、同一プ
 ## ファイル構成
 
 ```
-skill-compare/
+ch02-skill-compare/
 ├── prompt.md          # 両方で使った共通プロンプト
 ├── without-skill/
 │   └── index.html     # Skillなしで生成した結果
