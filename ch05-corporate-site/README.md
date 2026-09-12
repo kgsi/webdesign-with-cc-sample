@@ -24,7 +24,7 @@
 静的HTMLとTailwind CSS（CDN版）だけで動きます。フォントとTailwindの読み込みにネットワーク接続が必要です。
 
 ```bash
-cd corporate-site
+cd ch05-corporate-site
 python3 -m http.server 8000
 # http://localhost:8000/index.html
 ```
