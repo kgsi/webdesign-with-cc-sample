@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>医療系サイト ムードボード — ぱくたそ日本人素材版</title>
+<style>
+:root{
+  --ink:#18364d; --muted:#6f8697; --blue:#2f7fd0; --blue2:#8fc8f2;
+  --mint:#79bea7; --pale:#edf6fa; --line:#dbe8ef; --white:#fff; --bg:#f7fbfd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#eef4f7;color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;}
+.stage{width:1600px;min-height:1040px;margin:0 auto;padding:34px;background:#fff}
+.grid{
+display:grid;grid-template-columns:240px 1.55fr .8fr .72fr;
+grid-template-rows:365px 118px 255px 230px;gap:16px}
+.card{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden;position:relative}
+.intro{padding:28px 26px;background:linear-gradient(180deg,#fff,#f8fcfe)}
+.eyebrow{font-size:12px;letter-spacing:.16em;color:#6d879a}
+h1{font-size:27px;line-height:1.38;margin:12px 0 14px}
+.lead{font-size:14px;line-height:1.9;color:#526f82}
+.keywords{margin-top:40px;font-size:13px;line-height:2;color:#5f788a}
+
+.hero{grid-column:2;grid-row:1}
+.hero img,.photo img,.doctor img,.brand img{width:100%;height:100%;object-fit:cover;display:block}
+.hero img{object-position:center 30%}
+.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,43,67,.58),rgba(10,43,67,.14) 62%,transparent)}
+.hero-copy{position:absolute;left:48px;top:78px;color:#fff}
+.hero-copy .big{font-size:39px;line-height:1.45;font-weight:700;letter-spacing:.04em}
+.hero-copy p{font-size:16px;line-height:1.8;margin:15px 0 18px}
+.cta{display:inline-flex;background:#fff;color:#2879c1;border-radius:999px;padding:13px 20px;font-size:14px;font-weight:700}
+.credit{position:absolute;right:10px;bottom:8px;z-index:3;font-size:10px;background:rgba(255,255,255,.9);padding:5px 9px;border-radius:999px;color:#527084;text-decoration:none}
+.pakutaso-badge{position:absolute;left:12px;top:12px;z-index:3;font-size:10px;letter-spacing:.08em;background:rgba(255,255,255,.92);padding:6px 9px;border-radius:999px;color:#376177}
+
+.team{grid-column:3;grid-row:1}
+.team img{object-position:center 46%}
+.team .team-copy{position:absolute;left:22px;bottom:24px;color:#17384f;background:rgba(255,255,255,.9);padding:14px 16px;border-radius:12px;font-size:21px;font-weight:700;line-height:1.45}
+
+.message{grid-column:4;grid-row:1;padding:42px 28px;background:linear-gradient(145deg,#fff,#f1f8fb)}
+.message h2{font-size:24px;line-height:1.55;margin:0 0 20px}
+.message p{font-size:14px;line-height:1.9;color:#597386}
+.message .link{color:#2878bd;font-weight:700}
+
+.services{grid-column:1 / 3;grid-row:2;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.service{display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+.ico{width:38px;height:38px;border:2px solid var(--blue);border-radius:50%;display:grid;place-items:center;color:var(--blue);font-size:17px;margin-bottom:8px}
+.service b{font-size:14px}
+.reserve{grid-column:3;grid-row:2;background:linear-gradient(135deg,#2c7bcb,#4197dd);color:#fff;padding:24px 28px;display:flex;justify-content:space-between;align-items:center}
+.reserve strong{font-size:19px;line-height:1.6}
+.phone{grid-column:4;grid-row:2;padding:21px 26px;background:#f8fbfd}
+.phone .num{font-size:28px;color:#2c78bf;margin-top:5px;letter-spacing:.03em}
+
+.doctor{grid-column:1;grid-row:3}
+.doctor img{object-position:center 22%}
+.doctor-label{position:absolute;left:18px;bottom:17px;background:rgba(255,255,255,.92);padding:10px 13px;border-radius:10px;font-size:13px}
+.news{grid-column:2 / 4;grid-row:3;padding:25px 28px}
+.news h3{margin:0 0 15px;font-size:20px}
+.row{display:grid;grid-template-columns:100px 90px 1fr;padding:10px 0;border-top:1px solid #e7eef3;font-size:13px;color:#546f82}
+.tag{background:#edf5f8;border-radius:999px;text-align:center;padding:3px 8px;width:max-content}
+
+.support{grid-column:4;grid-row:3}
+.support img{object-position:center 48%}
+.support .copy{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.9);padding:11px 13px;border-radius:10px;font-size:13px;line-height:1.6}
+
+.lower{grid-column:1 / 3;grid-row:4;display:grid;grid-template-columns:1.22fr 1fr;gap:16px}
+.statement{border:1px solid var(--line);border-radius:14px;padding:30px;background:linear-gradient(140deg,#eef7fb,#fff)}
+.statement h3{font-size:28px;line-height:1.5;margin:0 0 14px}
+.statement p{font-size:13px;line-height:1.85;color:#5a7487;max-width:440px}
+.statement .mini{display:flex;gap:10px;margin-top:22px}
+.statement .mini span{font-size:12px;border:1px solid #cfe1ea;border-radius:999px;padding:8px 12px;background:#fff}
+
+.tokens{border:1px solid var(--line);border-radius:14px;padding:24px}
+.tokens h4{margin:0 0 14px;font-size:13px;letter-spacing:.1em;color:#71879a}
+.swatches{display:flex;gap:14px;margin-bottom:22px}
+.sw{width:46px;height:46px;border-radius:50%}
+.type-sample{font-size:25px;font-weight:700;margin:7px 0}
+.type-sub{font-size:14px;color:#6d8294}
+
+.brand{grid-column:3 / 5;grid-row:4;background:linear-gradient(135deg,#f5fbfd,#edf6f7)}
+.brand::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;right:-50px;top:-90px;background:radial-gradient(circle,#bfe8da 0,#dff4ed 45%,rgba(223,244,237,0) 70%)}
+.brand::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:120px;bottom:-110px;background:radial-gradient(circle,#b9daf7 0,#e7f3fd 52%,rgba(231,243,253,0) 72%)}
+.brand-copy{position:absolute;left:36px;top:48px;z-index:2;font-size:27px;line-height:1.55;font-weight:700}
+.brand-sub{position:absolute;left:37px;top:145px;z-index:2;font-size:13px;color:#557488}
+.brand-ui{position:absolute;right:38px;top:42px;z-index:2;width:280px}
+.ui-card{background:rgba(255,255,255,.9);border:1px solid #d9e7ee;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:13px;color:#375b73;display:flex;justify-content:space-between}
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:#8193a2;letter-spacing:.08em}
+.note{margin-top:10px;font-size:10px;color:#8296a5}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="grid">
+    <section class="card intro">
+      <div class="eyebrow">MOOD BOARD</div>
+      <h1>医療系サイト<br>日本語版</h1>
+      <div class="lead">日本人の実写素材をベースにした<br>安心・信頼・やさしさのある医療サイト</div>
+      <div class="keywords">
+        <div class="eyebrow" style="margin-bottom:8px">KEYWORD</div>
+        ・安心 / 信頼<br>・清潔感<br>・親しみやすさ<br>・専門性 / 誠実さ<br>・地域に寄り添う<br>・日本の医療らしさ
+      </div>
+    </section>
+
+    <section class="card hero">
+      <span class="pakutaso-badge">PAKUTASO / PHOTO</span>
+      <img src="https://download.pakutaso.com/shared/img/thumb/tomaturiHFKE2155_TP_V.jpg" alt="患者に説明する若い男性医師">
+      <div class="overlay"></div>
+      <div class="hero-copy">
+        <div class="big">いつもの暮らしに、<br>あんしんを。</div>
+        <p>地域のみなさまの健康を支える<br>身近な医療パートナーです。</p>
+        <span class="cta">診療予約はこちら →</span>
+      </div>
+      <a class="credit" href="https://www.pakutaso.com/20240500144post-51322.html" target="_blank">Photo: すしぱく / ぱくたそ ↗</a>
+    </section>
+
+    <section class="card team photo">
+      <span class="pakutaso-badge">PAKUTASO / PHOTO</span>
+      <img src="https://download.pakutaso.com/shared/img/thumb/kagaminHFKE8522_TP_V.jpg" alt="男女の医師">
+      <div class="team-copy">話しやすく、<br>相談しやすい医療へ。</div>
+      <a class="credit" href="https://www.pakutaso.com/20240349085post-50894.html" target="_blank">Photo: すしぱく / ぱくたそ ↗</a>
+    </section>
+
+    <section class="card message">
+      <h2>患者さんに寄り添う<br>医療を、これからも</h2>
+      <p>安心できる診療と、わかりやすい説明。<br>日々の健康を気軽に相談できる<br>地域のかかりつけ医を目指します。</p>
+      <p class="link">当院について　→</p>
+    </section>
+
+    <section class="services">
+      <div class="service"><div class="ico">＋</div><b>一般内科</b></div>
+      <div class="service"><div class="ico">♡</div><b>生活習慣病</b></div>
+      <div class="service"><div class="ico">○</div><b>小児科</b></div>
+      <div class="service"><div class="ico">◇</div><b>予防接種</b></div>
+      <div class="service"><div class="ico">✓</div><b>健康診断</b></div>
+    </section>
+
+    <section class="card reserve">
+      <strong>WEBでかんたん<br>診療予約</strong><span style="font-size:26px">→</span>
+    </section>
+
+    <section class="card phone">
+      <div style="font-size:12px;color:#748b9e">お電話でのお問い合わせ</div>
+      <div class="num">03-1234-5678</div>
+      <div style="font-size:11px;color:#7b90a0">受付時間 9:00–18:00（平日）</div>
+    </section>
+
+    <section class="card doctor">
+      <span class="pakutaso-badge">PAKUTASO / PHOTO</span>
+      <img src="https://download.pakutaso.com/shared/img/thumb/PASONAZ160306150I9A1901_TP_V.jpg" alt="女性医師">
+      <div class="doctor-label">医師紹介　佐藤 花子</div>
+      <a class="credit" href="https://www.pakutaso.com/20160732188post-8325.html" target="_blank">Photo: すしぱく / ぱくたそ ↗</a>
+    </section>
+
+    <section class="card news">
+      <h3>お知らせ</h3>
+      <div class="row"><span>2026.09.12</span><span class="tag">お知らせ</span><span>秋季の診療時間変更について</span></div>
+      <div class="row"><span>2026.08.25</span><span class="tag">トピックス</span><span>健康診断のご予約受付を開始しました</span></div>
+      <div class="row"><span>2026.08.03</span><span class="tag">お知らせ</span><span>新しい医師のご紹介</span></div>
+      <div class="row"><span>2026.07.18</span><span class="tag">トピックス</span><span>感染症対策について</span></div>
+    </section>
+
+    <section class="card support">
+      <span class="pakutaso-badge">PAKUTASO / PHOTO</span>
+      <img src="https://download.pakutaso.com/shared/img/thumb/kagaminHFKE8553_TP_V.jpg" alt="笑顔の男女医師">
+      <div class="copy">チームで支える、<br>身近な医療。</div>
+      <a class="credit" href="https://www.pakutaso.com/20240347088post-50918.html" target="_blank">Photo: すしぱく / ぱくたそ ↗</a>
+    </section>
+
+    <section class="lower">
+      <div class="statement">
+        <h3>確かな医療で、<br>健やかな毎日を。</h3>
+        <p>病気の治療だけでなく、予防から日々の健康管理まで。専門性は保ちつつ、患者さんにとって距離の近い医療体験をつくる。</p>
+        <div class="mini"><span>わかりやすい</span><span>予約しやすい</span><span>相談しやすい</span></div>
+      </div>
+
+      <div class="tokens">
+        <h4>COLOR / TYPOGRAPHY</h4>
+        <div class="swatches">
+          <span class="sw" style="background:#2f7fd0"></span>
+          <span class="sw" style="background:#8fc8f2"></span>
+          <span class="sw" style="background:#79bea7"></span>
+          <span class="sw" style="background:#edf6fa"></span>
+          <span class="sw" style="background:#f8fafc;border:1px solid #e5edf1"></span>
+        </div>
+        <div class="type-sample">見出しのサンプルです</div>
+        <div class="type-sub">サブ見出しのサンプルです</div>
+        <div style="font-size:13px;line-height:1.8;color:#6d8294;margin-top:12px">本文は読みやすいゴシック体。<br>余白を広く取り、情報密度を抑える。</div>
+      </div>
+    </section>
+
+    <section class="card brand">
+      <div class="brand-copy">地域の健康を、<br>もっと身近に。</div>
+      <div class="brand-sub">CLEAN / TRUST / HUMANITY</div>
+      <div class="brand-ui">
+        <div class="ui-card"><span>診療案内</span><span>→</span></div>
+        <div class="ui-card"><span>医師紹介</span><span>→</span></div>
+        <div class="ui-card"><span>アクセス</span><span>→</span></div>
+        <div class="ui-card"><span>よくある質問</span><span>→</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer">
+    <span>MEDICAL WEBSITE MOOD BOARD — JAPANESE</span>
+    <span>Japanese model photography: PAKUTASO</span>
+  </div>
+  <div class="note">
+    ※ 人物写真はぱくたそ実写素材を参照。利用時は各素材ページの最新の利用規約・モデルリリース等を確認してください。
+  </div>
+</div>
+</body>
+</html>
