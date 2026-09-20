@@ -29,4 +29,4 @@ python3 -m http.server 8000
 
 ## 写真について
 
-ムードボードの写真は [ぱくたそ](https://www.pakutaso.com/) の素材で、[利用規約](https://www.pakutaso.com/userpolicy.html) に従います。CC0ではないため、画像ファイルはこのリポジトリに同梱していません。素材ページと撮影者の一覧は `moodboard/photo_links.md` にあります。手元で試すときは、各素材ページから取得して `images/` に置いてください。
+ムードボードの写真は [ぱくたそ](https://www.pakutaso.com/) の素材で、[利用規約](https://www.pakutaso.com/userpolicy.html) に従います。CC0ではないため、画像ファイルはこのリポジトリに同梱していません。素材ページと撮影者の一覧は `moodboard/photo_links.md` にあります。`index.html` とムードボードは、同ファイルに記したMサイズ画像URLを `<img>` で直接参照しています。表示にはネットワーク接続が必要です。

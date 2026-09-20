@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>さくら台内科クリニック｜内科・小児科</title>
+  <meta name="description" content="さくら台内科クリニックは、地域のみなさまの健康を支える内科・小児科の診療所です。WEB予約に対応しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      /* 色（Figma color/*） */
+      --color-primary: #2f7fd0;
+      --color-primary-light: #8fc8f2;
+      --color-mint: #79bea7;
+      --color-pale: #edf6fa;
+      --color-bg: #f7fbfd;
+      --color-line: #dbe8ef;
+      --color-white: #ffffff;
+      --color-ink: #18364d;
+      --color-muted: #6f8697;
+
+      /* 余白（Figma space/*） */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --space-section: 96px;
+
+      /* 角丸（Figma radius/*） */
+      --radius-sm: 12px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        // 9色だけを定義し、Tailwind標準の色は使えなくする
+        colors: {
+          primary: 'var(--color-primary)',
+          'primary-light': 'var(--color-primary-light)',
+          mint: 'var(--color-mint)',
+          pale: 'var(--color-pale)',
+          bg: 'var(--color-bg)',
+          line: 'var(--color-line)',
+          white: 'var(--color-white)',
+          ink: 'var(--color-ink)',
+          muted: 'var(--color-muted)',
+          transparent: 'transparent',
+        },
+        // テキストスタイル5段階
+        fontSize: {
+          h1: ['40px', { lineHeight: '60px', fontWeight: '700' }],
+          h2: ['28px', { lineHeight: '42px', fontWeight: '700' }],
+          h3: ['20px', { lineHeight: '32px', fontWeight: '500' }],
+          body: ['16px', { lineHeight: '30px', fontWeight: '400' }],
+          caption: ['13px', { lineHeight: '20px', fontWeight: '400' }],
+        },
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+        },
+        extend: {
+          spacing: {
+            xs: 'var(--space-xs)',
+            sm: 'var(--space-sm)',
+            md: 'var(--space-md)',
+            lg: 'var(--space-lg)',
+            xl: 'var(--space-xl)',
+            section: 'var(--space-section)',
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            pill: 'var(--radius-pill)',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-white font-sans text-body text-ink antialiased">
+
+  <!-- 1. header -->
+  <header class="h-20 border-b border-line bg-white">
+    <div class="mx-auto flex h-full max-w-[1200px] items-center justify-between">
+      <a href="#" class="text-h3 text-ink">さくら台内科クリニック</a>
+      <nav aria-label="グローバルナビゲーション">
+        <ul class="flex items-center gap-x-8">
+          <li><a href="#" class="text-body text-ink hover:text-primary">診療案内</a></li>
+          <li><a href="#" class="text-body text-ink hover:text-primary">医師紹介</a></li>
+          <li><a href="#" class="text-body text-ink hover:text-primary">アクセス</a></li>
+          <li><a href="#" class="text-body text-ink hover:text-primary">お知らせ</a></li>
+          <li><a href="#" class="text-body text-ink hover:text-primary">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-x-sm">
+        <a href="tel:0312345678" class="text-caption text-muted">03-1234-5678</a>
+        <a href="#" class="inline-flex h-12 items-center rounded-pill bg-primary px-7 text-body font-medium text-white hover:opacity-90">WEB予約</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. hero -->
+    <section class="bg-bg py-xl" aria-labelledby="hero-heading">
+      <div class="mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-6">
+        <div class="col-span-6">
+          <p class="text-caption tracking-widest text-muted">さくら台内科クリニック</p>
+          <h1 id="hero-heading" class="mt-md text-h1 text-ink">いつもの暮らしに、あんしんを。</h1>
+          <p class="mt-md text-body text-muted">地域のみなさまの健康を支える身近な医療パートナーです。</p>
+          <div class="mt-lg flex items-center gap-x-sm">
+            <a href="#" class="inline-flex h-12 items-center rounded-pill bg-primary px-7 text-body font-medium text-white hover:opacity-90">診療予約はこちら</a>
+            <a href="#" class="inline-flex h-12 items-center rounded-pill border border-primary bg-white px-7 text-body font-medium text-primary hover:bg-pale">診療案内を見る</a>
+          </div>
+        </div>
+        <div class="col-span-6">
+          <img src="https://www.pakutaso.com/shared/img/thumb/tomaturiHFKE2155_TP_V.jpg" alt="患者に説明する白衣の男性医師" class="aspect-[4/3] w-full rounded-md bg-pale object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. message -->
+    <section class="bg-white py-section" aria-labelledby="message-heading">
+      <div class="mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-6">
+        <div class="col-span-6">
+          <img src="https://www.pakutaso.com/shared/img/thumb/reai_2567A011_TP_V.jpg" alt="自然光の入る診察室と待合スペース" class="aspect-[4/3] w-full rounded-md bg-pale object-cover" loading="lazy">
+        </div>
+        <div class="col-span-5 col-start-8">
+          <p class="text-caption tracking-widest text-muted">MESSAGE</p>
+          <h2 id="message-heading" class="mt-sm text-h2 text-ink">患者さんに寄り添う医療を、これからも</h2>
+          <p class="mt-md text-body text-ink">さくら台内科クリニックは、地域のかかりつけ医として、体調の小さな変化から生活習慣の相談まで、ひとりひとりの暮らしに合わせた診療を大切にしています。症状だけでなく、その背景にある不安や生活のことも、ゆっくりお聞きします。</p>
+          <p class="mt-sm text-body text-ink">初めての方も、どうぞお気軽にお越しください。「こんなことで受診していいのかな」と迷うときこそ、私たちの出番です。必要に応じて専門の医療機関もご紹介しますので、まずはご相談ください。</p>
+          <a href="#" class="mt-md inline-block text-body text-primary hover:text-primary-light">当院について →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. services -->
+    <section id="services" class="bg-bg py-section" aria-labelledby="services-heading">
+      <div class="mx-auto max-w-[1200px]">
+        <p class="text-caption tracking-widest text-muted">SERVICES</p>
+        <h2 id="services-heading" class="mt-sm text-h2 text-ink">診療案内</h2>
+        <p class="mt-md text-body text-ink">内科・小児科を中心に、日常的な体調不良から生活習慣病の管理、予防接種、健康診断まで幅広く対応しています。</p>
+        <ul class="mt-lg grid grid-cols-3 gap-6">
+          <li class="flex flex-col gap-y-sm rounded-md border border-line bg-white p-md">
+            <div class="h-10 w-10 rounded-pill bg-pale" aria-hidden="true"></div>
+            <h3 class="text-h3 text-ink">一般内科</h3>
+            <p class="text-body text-ink">発熱、せき、腹痛などの急な症状から、原因のはっきりしない体調不良まで、まずはご相談ください。</p>
+          </li>
+          <li class="flex flex-col gap-y-sm rounded-md border border-line bg-white p-md">
+            <div class="h-10 w-10 rounded-pill bg-pale" aria-hidden="true"></div>
+            <h3 class="text-h3 text-ink">生活習慣病</h3>
+            <p class="text-body text-ink">高血圧、糖尿病、脂質異常症などを、食事や運動の相談とあわせて長く付き合える形で管理します。</p>
+          </li>
+          <li class="flex flex-col gap-y-sm rounded-md border border-line bg-white p-md">
+            <div class="h-10 w-10 rounded-pill bg-pale" aria-hidden="true"></div>
+            <h3 class="text-h3 text-ink">小児科</h3>
+            <p class="text-body text-ink">お子さまの発熱や感染症、アレルギーなどを診察します。保護者の方の不安にも丁寧にお答えします。</p>
+          </li>
+          <li class="flex flex-col gap-y-sm rounded-md border border-line bg-white p-md">
+            <div class="h-10 w-10 rounded-pill bg-pale" aria-hidden="true"></div>
+            <h3 class="text-h3 text-ink">予防接種</h3>
+            <p class="text-body text-ink">インフルエンザや定期接種など、各種ワクチンに対応しています。接種スケジュールのご相談も承ります。</p>
+          </li>
+          <li class="flex flex-col gap-y-sm rounded-md border border-line bg-white p-md">
+            <div class="h-10 w-10 rounded-pill bg-pale" aria-hidden="true"></div>
+            <h3 class="text-h3 text-ink">健康診断</h3>
+            <p class="text-body text-ink">特定健診や雇入時健診など、目的に応じた健康診断を実施しています。結果のご説明も院内で行います。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. reserve -->
+    <section id="reserve" class="bg-gradient-to-br from-primary to-primary-light py-20 text-white" aria-labelledby="reserve-heading">
+      <div class="mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-6">
+        <div class="col-span-6">
+          <h2 id="reserve-heading" class="text-h2 text-white">WEBでかんたん診療予約</h2>
+          <p class="mt-sm text-body text-white">24時間いつでも受付。当日のご予約にも対応しています。</p>
+          <a href="#" class="mt-md inline-flex h-12 items-center rounded-pill bg-white px-7 text-body font-medium text-primary hover:bg-pale">診療予約はこちら</a>
+        </div>
+        <div class="col-span-5 col-start-8">
+          <p class="text-caption text-white">お電話でのご予約</p>
+          <a href="tel:0312345678" class="mt-xs inline-block text-h2 text-white">03-1234-5678</a>
+          <p class="mt-xs text-caption text-white">受付時間 9:00〜18:00（平日）</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. doctor -->
+    <section id="doctor" class="bg-white py-section" aria-labelledby="doctor-heading">
+      <div class="mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-6">
+        <div class="col-span-4">
+          <img src="https://www.pakutaso.com/shared/img/thumb/PASONAZ160306150I9A1901_TP_V.jpg" alt="カルテを持つ白衣姿の女性医師" class="aspect-[3/4] w-full rounded-md bg-pale object-cover" loading="lazy">
+        </div>
+        <div class="col-span-7 col-start-6">
+          <p class="text-caption tracking-widest text-muted">DOCTOR</p>
+          <h2 id="doctor-heading" class="mt-sm text-h2 text-ink">医師紹介</h2>
+          <h3 class="mt-md text-h3 text-ink">院長　佐藤 花子</h3>
+          <p class="mt-sm text-body text-ink">総合病院の内科で長く勤務したのち、地域に根ざした医療を目指してさくら台内科クリニックを開院しました。日本内科学会総合内科専門医。小児科の診療経験も持ち、家族みんなで通える診療所づくりを続けています。</p>
+          <p class="mt-sm text-body text-ink">診療で大切にしているのは、検査の数値だけでなく、その方の暮らしを見ることです。お話をよく聞き、納得していただける説明を心がけています。気になることは小さなことでも遠慮なくお伝えください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. news -->
+    <section id="news" class="bg-bg py-section" aria-labelledby="news-heading">
+      <div class="mx-auto max-w-[1200px]">
+        <div class="flex items-end justify-between">
+          <div>
+            <p class="text-caption tracking-widest text-muted">NEWS</p>
+            <h2 id="news-heading" class="mt-sm text-h2 text-ink">お知らせ</h2>
+          </div>
+          <a href="#" class="text-body text-primary hover:text-primary-light">一覧を見る →</a>
+        </div>
+        <ul class="mt-lg border-b border-line">
+          <li class="flex items-center gap-x-md border-t border-line py-md">
+            <time datetime="2026-09-12" class="w-24 shrink-0 text-caption text-muted">2026.09.12</time>
+            <span class="inline-flex h-6 shrink-0 items-center rounded-pill bg-pale px-3 text-caption text-ink">お知らせ</span>
+            <a href="#" class="text-body text-ink hover:text-primary">年末年始の休診について</a>
+          </li>
+          <li class="flex items-center gap-x-md border-t border-line py-md">
+            <time datetime="2026-09-01" class="w-24 shrink-0 text-caption text-muted">2026.09.01</time>
+            <span class="inline-flex h-6 shrink-0 items-center rounded-pill bg-pale px-3 text-caption text-ink">トピックス</span>
+            <a href="#" class="text-body text-ink hover:text-primary">インフルエンザ予防接種の受付を開始しました</a>
+          </li>
+          <li class="flex items-center gap-x-md border-t border-line py-md">
+            <time datetime="2026-08-20" class="w-24 shrink-0 text-caption text-muted">2026.08.20</time>
+            <span class="inline-flex h-6 shrink-0 items-center rounded-pill bg-pale px-3 text-caption text-ink">お知らせ</span>
+            <a href="#" class="text-body text-ink hover:text-primary">秋の健康診断のご案内</a>
+          </li>
+          <li class="flex items-center gap-x-md border-t border-line py-md">
+            <time datetime="2026-08-05" class="w-24 shrink-0 text-caption text-muted">2026.08.05</time>
+            <span class="inline-flex h-6 shrink-0 items-center rounded-pill bg-pale px-3 text-caption text-ink">トピックス</span>
+            <a href="#" class="text-body text-ink hover:text-primary">WEB予約システムを導入しました</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. access -->
+    <section id="access" class="bg-white py-section" aria-labelledby="access-heading">
+      <div class="mx-auto grid max-w-[1200px] grid-cols-12 items-center gap-x-6">
+        <div class="col-span-5">
+          <p class="text-caption tracking-widest text-muted">ACCESS</p>
+          <h2 id="access-heading" class="mt-sm text-h2 text-ink">アクセス</h2>
+          <address class="mt-md text-body not-italic text-ink">
+            〒123-4567 東京都さくら台区さくら台1-2-3<br>
+            さくら台駅 東口から徒歩5分<br>
+            駐車場あり（3台）
+          </address>
+        </div>
+        <div class="col-span-6 col-start-7">
+          <div class="aspect-video w-full overflow-hidden rounded-md bg-pale">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=139.6614%2C35.7368%2C139.6692%2C35.7404&amp;layer=mapnik&amp;marker=35.7386%2C139.6653" class="h-full w-full border-0" title="さくら台内科クリニック周辺の地図" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. footer -->
+  <footer class="border-t border-line bg-pale py-xl">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="grid grid-cols-12 gap-x-6">
+        <div class="col-span-5">
+          <p class="text-h3 text-ink">さくら台内科クリニック</p>
+          <p class="mt-xs text-body text-ink">内科・小児科の診療所です</p>
+        </div>
+        <nav class="col-span-3 col-start-7" aria-label="サイトマップ">
+          <ul class="flex flex-col gap-y-xs">
+            <li><a href="#" class="text-body text-ink hover:text-primary">診療案内</a></li>
+            <li><a href="#" class="text-body text-ink hover:text-primary">医師紹介</a></li>
+            <li><a href="#" class="text-body text-ink hover:text-primary">アクセス</a></li>
+            <li><a href="#" class="text-body text-ink hover:text-primary">お知らせ</a></li>
+            <li><a href="#" class="text-body text-ink hover:text-primary">よくある質問</a></li>
+          </ul>
+        </nav>
+        <div class="col-span-3 col-start-10">
+          <p class="text-body text-ink">診療時間</p>
+          <table class="mt-xs text-body text-ink">
+            <tbody>
+              <tr>
+                <th scope="row" class="pr-md text-left font-normal">午前 9:00〜12:30</th>
+                <td>月火水金土</td>
+              </tr>
+              <tr>
+                <th scope="row" class="pr-md text-left font-normal">午後 14:30〜18:00</th>
+                <td>月火水金</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="mt-xl text-caption text-muted">© 2026 さくら台内科クリニック</p>
+    </div>
+  </footer>
+
+</body>
+</html>
