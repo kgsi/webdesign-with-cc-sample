@@ -204,4 +204,5 @@ CLAUDE.md を更新しました（color/muted の値、mint と pale の用途�
 - ブラウザ確認：headless Chrome、1280px 幅。ページの実高さは 4727px から 4719px へ 8px 短くなった（reserve ボタンの上余白 24px → 16px）。header は受付時間が右揃えの2行、message の H2 は読点の後で2行に折り返す
 - 判断：採用。`versions/v5-rules/index.html` と `screenshots/v5-rules/index-1280.png` に保存
 - Figma の変更：H2（2:33）の文字列を改行入りに変更（幅 486、高さ 84 は不変）、変数 color/muted（VariableID:1:14、モード 1:0）の値を #5C7384 に変更、ルールページの Card のアイコン楕円（4:99）の塗りを color/mint（1:8）にバインド
-- 迷った点：muted を暗くしたので caption 系の文字がわずかに強く見えるが、要件の 4.5:1 を優先した。Card の本文を muted にする案は「本文サイズに muted を使わない」ルールとして退けた
+- Claude Code が迷った点として報告したもの：reserve 右カラムの受付時間はすでに「受付時間」表記だったので未変更。footer の診療時間テーブルは受付時間の案内ではないため対象外と判断
+- 著者が迷った点：muted を暗くしたので caption 系の文字がわずかに強く見えるが、要件の 4.5:1 を優先した。Card の本文を muted にする案は「本文サイズに muted を使わない」ルールとして退けた
