@@ -16,14 +16,14 @@
 
 | 層 | 材料 | 渡し方 |
 |---|---|---|
-| 構造 | `wireframe/01-header.png` 〜 `09-footer.png`（Figma `top-wireframe` をセクションごとに書き出した9枚） | 画像として添付 |
+| 構造 | `wireframe/01-header.png` 〜 `09-footer.png`（Figma `top-wireframe` をセクションごとに書き出した9枚） | `wireframe/` に置き、プロンプトでパスを指定 |
 | 構造 | `docs/wireframe.md`（構造記述：優先順位、各セクションの内容） | ファイルを参照させる |
 | 構造 | `docs/requirements.md`（目的、読者、成功条件） | ファイルを参照させる |
 | ルール | `CLAUDE.md`（Figmaの変数を `get_variable_defs` で読み取り、CSSカスタムプロパティとして整理した制作ルール） | ディレクトリに置く（自動で読まれる） |
 
 トーンの層（`docs/tone.md`、`moodboard/`）は初稿では渡していない。ルールの色と文字がトーンをどこまで再現するかを4-3で見るため。
 
-セクション画像は Figma MCP の `download_assets` でセクションのフレームごとに書き出した（1280px幅、等倍）。変数は `get_variable_defs` をルールページに対して実行し、18個の値を `CLAUDE.md` の表に写した。
+セクション画像は Figma MCP の `download_assets` でセクションのフレームごとに書き出した（1280px幅、等倍）。変数は `get_variable_defs` をルールページに対して実行したが、返るのはそのページで使われている13個（色9、space/sm、space/md、radius/md、radius/pill）だけだった。未使用の5個は `use_figma` の `getLocalVariablesAsync` で取得し、18個の値を `CLAUDE.md` の表に写した。
 
 ### プロンプト（Claude Codeへ、ch04-clinic-site で新規セッション）
 

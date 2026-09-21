@@ -11,7 +11,7 @@
 
 ## デザイントークン
 
-Figmaファイル「book-ch04 さくら台内科クリニック」のルールページにある変数を、`get_variable_defs` で読み取った値（2026-09-21）。`<style>` のCSSカスタムプロパティとして定義し、`tailwind.config` の `theme.colors` などからその変数を参照する。値を直接クラスに書かない（`text-[#18364d]` のような書き方をしない）。
+Figmaファイル「book-ch04 さくら台内科クリニック」のルールページにある変数を、`get_variable_defs` と `use_figma` で読み取った値（2026-09-21。`get_variable_defs` はページで使われている13個だけを返すため、残り5個は `use_figma` で取得）。`<style>` のCSSカスタムプロパティとして定義し、`tailwind.config` の `theme.colors` などからその変数を参照する。値を直接クラスに書かない（`text-[#18364d]` のような書き方をしない）。
 
 ### 色（Figma `color/*` → CSS `--color-*`）
 
