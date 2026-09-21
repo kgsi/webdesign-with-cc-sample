@@ -6,7 +6,7 @@
 |---|---|---|---|
 | v1-draft | 4-2 | ワイヤーフレームと構造記述から出した初稿 | 完了 |
 | v2-loop1 | 4-3 | 1周目：hero（H1の折り返しをFigmaへ戻して直す） | 完了 |
-| v3-loop2 | 4-3 | 2周目：services（アイコンの差し色をトーン定義に合わせる） | 未着手 |
+| v3-loop2 | 4-3 | 2周目：services（アイコンの差し色をトーン定義に合わせる） | 完了 |
 | v4-loop3 | 4-3 | 3周目：予約導線（reserve と header の電話・受付時間） | 未着手 |
 | v5-rules | 4-4 | ズレを振り分け、ルールに反映した版 | 未着手 |
 
@@ -103,3 +103,54 @@ Figma の「hero」フレーム（wireframe/02-hero.png、更新済み）と比�
 - ブラウザ確認（`screenshots/v2-loop1/index-1280.png`、1280×4727）：H1 が「いつもの暮らしに、」「あんしんを。」の2行になり、末尾の「を。」の孤立は解消。ページの高さは v1 と同じ4727px（Figma と同じく設計の段階から2行分の高さだったため）
 - 判断：採用。ズレの層は構造。行き先は「Figmaへ戻す」で、Figma のテキストとコードの両方に同じ改行が入った状態
 - この周で触れなかったもの：message の H2 の折り返し（同じ種類の問題だが別セクション。4-4 で扱う）、header の受付時間（3周目）、muted のコントラスト（4-4）
+
+## 4-3 2周目 v3-loop2（services）
+
+### 前提
+
+初稿ではトーンの層（`docs/tone.md`）を渡していない。services のアイコンの丸は v1 で pale になったが、`tone.md` は mint を「差し色。アイコンの丸、Tag の一部」と定めており、mint はページ内で未使用のまま。Figma の `services` フレームは構造ページの灰色ワイヤーフレームで色を持たないため、この周の参照点はフレームではなく `tone.md`。構造記述（`docs/wireframe.md`）の「pale の面」は `tone.md` に合わせて mint に直した（2026-09-21）。
+
+### プロンプト（Claude Codeへ、ch04-clinic-site で新規セッション）
+
+```
+services セクション（index.html の <section id="services">）のトーンを直してください。
+Figma の「services」フレーム（wireframe/04-services.png）は色を持たないワイヤーフレームなので、色の参照点は docs/tone.md です。次の1点を修正してください。
+1. 各カードのアイコンの丸（40px、rounded-pill）が、現状は pale（#EDF6FA）でカードの白い面に沈んでいます。docs/tone.md は mint（#79BEA7）を「差し色。アイコンの丸、Tag の一部。面積は小さく」と定義しています。丸の面を mint にしてください。
+
+意図：診療案内はページで最初に色の変化が出る場所なので、差し色を小さく置いて5枚のカードの入口を目に留まりやすくします。差し色は丸の面だけに留め、カードの罫線、見出し、本文には使いません。
+
+条件
+- 変更するのは index.html の services セクションだけ。他のセクション、<style>、tailwind.config には触れない
+- docs/tone.md は読んでよいが変更しない
+- 変更後、変更したファイルと差分の要点を報告する
+```
+
+### 結果
+
+- 差分は `index.html` の services 内5行だけ。アイコンの丸の `bg-pale` が `bg-mint` になった。他のセクション、`<style>`、`tailwind.config` に変更なし
+- ブラウザ確認（`screenshots/v3-loop2/index-1280.png`、1280×4727）：白いカードの左上に mint の丸が5つ並び、bg 地の上で差し色として見える。面積は丸だけで、罫線や文字には広がっていない
+- 判断：採用。ズレの層はトーン。行き先は「コードを直す」だが、原因は初稿にトーンの層を渡していなかったこと。`tone.md` の mint の用途は 4-4 で CLAUDE.md のルールに写す候補
+- 見送ったもの：カード本文は Figma のワイヤーフレームでは薄い灰色（muted 相当）だが、コントラストのため v1 で ink にした判断を維持。意図的な不一致として 4-4 で扱う
+
+## 4-3 3周目 v4-loop3（予約導線：header と reserve）
+
+### 前提
+
+要件の成功条件「電話番号と受付時間がヘッダーと予約セクションの両方にある」に対し、v1 の header には電話番号だけがある。初稿の時点で見つけていたが、hero と services の周では手を広げずに置いた。原因は Figma の `header` フレームと構造記述に受付時間がなかったこと（要件と設計の食い違い）。行き先は「Figmaへ戻す」で、Figma の `header-right` に受付時間の Caption を追加して `wireframe/01-header.png` を書き出し直し、構造記述も直した（2026-09-21）。reserve 側は Figma のノード URL を渡し、`get_design_context` で値を照合させる。
+
+### プロンプト（Claude Codeへ、ch04-clinic-site で新規セッション）
+
+```
+予約の導線を整えるため、header と reserve セクション（index.html の <header> と <section id="reserve">）を直してください。
+
+1. header：要件（docs/requirements.md）は「電話番号と受付時間がヘッダーと予約セクションの両方にある」ですが、現状の header には電話番号だけで受付時間がありません。Figma の「header」フレーム（wireframe/01-header.png、更新済み）に合わせ、電話番号の下に Caption「受付 9:00〜18:00（平日）」を右揃えで加えてください。2行とも Caption、muted。header の高さ 80px は変えません。
+2. reserve：参照先ノードのURL https://www.figma.com/design/0fjzmyH6ipz6kg3ou3oFtU/?node-id=2-66
+   上記のノードを Figma MCP の get_design_context で読み込み、上下の余白、電話番号の文字サイズ、右カラムの3行の並びが現状のコードと一致しているか確認してください。一致していればコードは変えず、確認した値を報告してください。違いがあれば直してください。
+
+意図：初めての患者が電話とWEBのどちらでも予約できることを、ページの入口（header）と予約セクションの両方で同じ情報で示します。
+
+条件
+- 変更するのは index.html の header と reserve だけ。他のセクション、<style>、tailwind.config には触れない
+- docs は読んでよいが変更しない
+- 変更後、変更したファイル、差分の要点、Figma から確認した値を報告する
+```
