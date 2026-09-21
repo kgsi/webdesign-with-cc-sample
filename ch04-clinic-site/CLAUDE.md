@@ -11,7 +11,7 @@
 
 ## デザイントークン
 
-Figmaファイル「book-ch04 さくら台内科クリニック」のルールページにある変数を、`get_variable_defs` と `use_figma` で読み取った値（2026-09-21。`get_variable_defs` はページで使われている13個だけを返すため、残り5個は `use_figma` で取得）。`<style>` のCSSカスタムプロパティとして定義し、`tailwind.config` の `theme.colors` などからその変数を参照する。値を直接クラスに書かない（`text-[#18364d]` のような書き方をしない）。
+Figmaファイル「book-ch04 さくら台内科クリニック」のルールページにある変数を、`get_variable_defs` と `use_figma` で読み取った値（2026-09-21。`get_variable_defs` はページで使われている13個だけを返すため、残り5個は `use_figma` で取得。2026-09-21 に color/muted を #6f8697 から #5c7384 へ変更）。`<style>` のCSSカスタムプロパティとして定義し、`tailwind.config` の `theme.colors` などからその変数を参照する。値を直接クラスに書かない（`text-[#18364d]` のような書き方をしない）。
 
 ### 色（Figma `color/*` → CSS `--color-*`）
 
@@ -19,13 +19,13 @@ Figmaファイル「book-ch04 さくら台内科クリニック」のルール�
 |---|---|---|---|
 | color/primary | --color-primary | #2f7fd0 | ボタンの面、リンク、ホバー |
 | color/primary-light | --color-primary-light | #8fc8f2 | グラデーションの終点 |
-| color/mint | --color-mint | #79bea7 | 差し色（小さな面だけ） |
-| color/pale | --color-pale | #edf6fa | プレースホルダーの面、Tag、アイコンの丸、フッター |
+| color/mint | --color-mint | #79bea7 | 差し色。Card のアイコンの丸だけに使う |
+| color/pale | --color-pale | #edf6fa | プレースホルダーの面、Tag、フッター |
 | color/bg | --color-bg | #f7fbfd | セクションの背景 |
 | color/line | --color-line | #dbe8ef | 罫線、カードの枠 |
 | color/white | --color-white | #ffffff | 面、ダーク面の文字 |
 | color/ink | --color-ink | #18364d | 見出しと本文 |
-| color/muted | --color-muted | #6f8697 | 補足の文字 |
+| color/muted | --color-muted | #5c7384 | 補足の文字（白地で 4.9:1、bg 地で 4.7:1） |
 
 この9色だけを使う。Tailwind標準の `gray-*` `slate-*` `blue-*` などは使わない。
 
@@ -64,7 +64,7 @@ Figmaファイル「book-ch04 さくら台内科クリニック」のルール�
 
 - Button primary：面 primary、文字 white。高さ 48px、左右パディング 28px、角丸 pill、文字は Body の太さ 500
 - Button secondary：面 white、枠 primary 1px、文字 primary。寸法は primary と同じ
-- Card：面 white、枠 line 1px、角丸 md、パディング md。上からアイコンの丸（40px、pale）、H3、Body。縦の間隔は sm
+- Card：面 white、枠 line 1px、角丸 md、パディング md。上からアイコンの丸（40px、mint）、H3、Body（ink）。縦の間隔は sm
 - Tag：面 pale、文字 Caption の ink、左右パディング 12px、高さ 24px、角丸 pill
 - 影（`shadow-*`）を使わない。アイコンは 24px のライン SVG か、色面だけで表す。絵文字を使わない
 
@@ -73,6 +73,17 @@ Figmaファイル「book-ch04 さくら台内科クリニック」のルール�
 - コンテナは幅 1200px を中央寄せ（`mx-auto max-w-[1200px]`）
 - グリッドは12カラム、ガター 24px
 - セクションの縦余白は `docs/wireframe.md` の指定に従う（96px が基本）
+
+## 用語
+
+- 診療時間の案内は「受付時間 9:00〜18:00（平日）」と書く。「受付」だけに略さない
+
+## Figma と意図的に違えている点
+
+Figma のワイヤーフレームやトークンと一致しないが、理由があってコード側を正とする点。Figma には戻さない。
+
+- reserve の縦余白は 80px（`py-20`）。トークン（space/*）にない値だが、使うのはこの1箇所だけなので変数を増やさない
+- Card の本文はワイヤーフレームでは薄い灰色だが、コードでは ink。本文サイズの文字に muted を使わない
 
 ## 完了前の確認
 
