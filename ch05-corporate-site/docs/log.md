@@ -9,7 +9,7 @@
 ## 5-2 情報設計（docs/sitemap.md、docs/wireframe.md）
 
 - ナビ7項目の並びは取引先の関心順。トップ9セクションはムードボードの並びをそのまま採用し、理由を `sitemap.md` に残した
-- ワイヤーフレームはFigmaで12カラムグリッド上に描き、`wireframe.md` にセクションごとの構造記述として書き起こした。Claude Codeには画像ではなく構造記述を渡す（カラム数や余白の数値が正確に伝わるため）
+- ワイヤーフレームはFigmaでは描かず、ムードボードの構成を12カラムグリッド上の数値（カラム数、余白）に落とし、`wireframe.md` にセクションごとの構造記述として書いた。Claude Codeには画像ではなく構造記述を渡す（カラム数や余白の数値が正確に伝わるため）
 
 ## 5-3 トーン（docs/tone.md、images/）
 
@@ -113,7 +113,7 @@ demo/corporate-site/ にニュース一覧ページ news.html を作ってくだ
 
 ### 結果（news.html、v3）
 
-サブエージェントの報告：`news.html` を1ファイル作成。ヘッダーとフッターは `index.html` からコピーし、ナビのリンク先を `index.html#about` 等に、ロゴを `index.html` に変更。「ニュース」に `text-white` と `aria-current="page"`。Tag は「すべて」を `bg-accent text-white` で選択中に。ページネーションは DESIGN.md に定義が無かったので、テキストリンクと Caption の組み合わせだけで作り、DESIGN.md に項を追加することを提案。色は8色内、`md:`・`sm:`・`shadow` は0件。
+サブエージェントの報告：`news.html` を1ファイル作成。ヘッダーとフッターは `index.html` からコピーし、ナビのリンク先を `index.html#about` 等に、ロゴを `index.html` に変更。「ニュース」に `text-white` と `aria-current="page"`。Tag は「すべて」を `bg-accent text-white` で選択中に。ページネーションは DESIGN.md に定義が無かったので、DESIGN.md にあるテキストリンクの部品だけを組み合わせて作り、DESIGN.md に項を追加することを提案。色は8色内、`md:`・`sm:`・`shadow` は0件。
 
 ブラウザ確認（screenshots/v3-final/）：ヘッダー、Tag、リスト行の余白と罫線、フッターはトップと同じに見える。375px ではリスト行が日付＋Tag／タイトルの2段に折れ、トップの NEWS と同じ挙動。修正指示は出さなかった。
 
