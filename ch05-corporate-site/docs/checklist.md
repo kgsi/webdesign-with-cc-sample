@@ -1,12 +1,12 @@
 # 公開前チェック
 
-5-6の成果物。Claude Codeに実行させた自動チェックと、著者が目視で確認した項目を分けて記録する。対象は v3（`corporate-site/v3-final`）。
+5-6の成果物。Claude Codeに実行させた自動チェックと、著者が目視で確認した項目を分けて記録する。対象はルートの `index.html` と `news.html`（最終版）。
 
 ## チェック項目と結果
 
 | # | 項目 | 方法 | 結果 |
 |---|---|---|---|
-| 1 | レスポンシブ（375、768、1280で横スクロールなし） | headless Chromeのスクリーンショット（`screenshots/v3-final/`）＋ ブラウザで `scrollWidth` を確認 | ○ 両ページとも3幅で `scrollWidth == clientWidth`（375: 360、768: 753、1280: 1265。差分15pxはスクロールバー）。スクリーンショットでも溢れなし |
+| 1 | レスポンシブ（375、768、1280で横スクロールなし） | headless Chromeのスクリーンショット（`screenshots/`）＋ ブラウザで `scrollWidth` を確認 | ○ 両ページとも3幅で `scrollWidth == clientWidth`（375: 360、768: 753、1280: 1265。差分15pxはスクロールバー）。スクリーンショットでも溢れなし |
 | 2 | リンク切れ | `grep` で `href` を列挙し、`#`、`#id`、`news.html`、`index.html`、外部URL以外が無いこと | ○ `href` は `#`（48件、リンク先未作成のナビ・SNS・ボタン）、`#about` 等のページ内アンカー、`news.html`、`index.html`、`index.html#〜`、Google Fonts の3種だけ。アンカー先の `id` は全て存在 |
 | 3 | 画像の alt | `grep '<img'` で全 `img` に `alt` があること。装飾画像は `alt=""` | ○ `img` は index.html に8個、すべて `alt` あり。news.html に `img` なし。ヒーローは `background-image` で `alt` の対象外 |
 | 4 | コントラスト比 | 使っている文字色と背景色の組み合わせを計算（WCAG AA：本文 4.5:1、大きな文字 3:1） | △→修正 white on navy-950 18.6、slate-200 on navy-950 15.1、navy-900 on white 17.4、accent on white 5.2、slate-500 on white 4.8 は AA 合格。**slate-500 on navy-950 3.9、on navy-900 3.7、on teal-900 2.7、on slate-200 3.9 は 12px 文字で AA 未満**。ダーク面の Caption を `slate-200/70`（navy-950 で 7.8、navy-900 で 7.4、teal-900 で 6.0）、BUSINESS帯（slate-200）のラベルを `slate-700`（8.4）に変更し、DESIGN.md と CLAUDE.md に面別のルールを追記。accent on navy-950 3.6 はアイコン（`aria-hidden`）だけなので 3:1 の基準で合格 |
@@ -20,6 +20,6 @@
 
 - 自動で判定できたもの：2、3、5、6、7、8、9 と、1 の `scrollWidth`、4 の比率計算
 - 目視が要るもの：1 の「溢れていないが読めるか」（375pxのH1の折返し、リスト行の2段組）、4 の「基準は満たすが読みにくくないか」（`slate-200/70` のラベルはダーク面で薄い）、6 の OGP 画像の見え方（SNSのプレビューは実機で確認）、7 の favicon のタブ表示（grep でタグの有無を確認しただけ）
-- チェックで見つけた修正はすべて `corporate-site/v3-final` に含めた
+- チェックで見つけた修正はすべてルートの `index.html` と `news.html` に反映した
 
 実施：2026-09-11、Claude Code（Fable 5.1）。目視の確認は著者が行う。

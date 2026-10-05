@@ -1,6 +1,6 @@
 # NOVARC デザインシステム
 
-第5章5-5の成果物。`index.html`（v2）で手作業で決めた内容をルールに昇格させた、人が読む仕様書。Claude Codeに読ませる制作ルールは `CLAUDE.md` にある。実装は `index.html` と `news.html` がこの仕様に従う。
+第5章5-5の成果物。5-4 の改善版の `index.html` で手作業で決めた内容をルールに昇格させた、人が読む仕様書。Claude Codeに読ませる制作ルールは `CLAUDE.md` にある。実装は `index.html` と `news.html` がこの仕様に従う。
 
 ## 1. ブランド
 
