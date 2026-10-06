@@ -10,6 +10,8 @@
 | v4-loop3 | 4-3 | 3周目：予約導線（reserve と header の電話・受付時間） | 完了 |
 | v5-rules | 4-4 | ズレを振り分け、ルールに反映した版 | 完了 |
 
+版の名前は制作時の記録として残している。リポジトリに収録しているのは最終版（v5-rules）の `index.html` と `screenshots/index-1280.png` だけで、途中の版のフォルダ（`versions/` と各版のスクリーンショット）は削除した。各版の `index.html` は、v1-draft が 634e622、v2-loop1 が 86a8a14、v3-loop2 が ea2c361、v4-loop3 が 4e603e7、v5-rules が 430a154 のコミットで辿れる。
+
 ## 4-2 初稿 v1-draft
 
 ### 渡した材料
@@ -202,7 +204,7 @@ CLAUDE.md を更新しました（color/muted の値、mint と pale の用途�
 - 変更したファイル：`index.html` のみ。差分は4行（`--color-muted: #5c7384;`、header の `受付時間 9:00〜18:00（平日）`、message の H2 に `<br>`、reserve ボタンの `mt-md` → `mt-sm`）
 - 色クラスの確認：使用しているのは9色のみ。トークン外の色はなし
 - ブラウザ確認：headless Chrome、1280px 幅。ページの実高さは 4727px から 4719px へ 8px 短くなった（reserve ボタンの上余白 24px → 16px）。header は受付時間が右揃えの2行、message の H2 は読点の後で2行に折り返す
-- 判断：採用。`versions/v5-rules/index.html` と `screenshots/v5-rules/index-1280.png` に保存
+- 判断：採用。ルートの `index.html` を最終版とし、スクリーンショットを `screenshots/index-1280.png` に保存
 - Figma の変更：H2（2:33）の文字列を改行入りに変更（幅 486、高さ 84 は不変）、変数 color/muted（VariableID:1:14、モード 1:0）の値を #5C7384 に変更、ルールページの Card のアイコン楕円（4:99）の塗りを color/mint（1:8）にバインド
 - Claude Code が迷った点として報告したもの：reserve 右カラムの受付時間はすでに「受付時間」表記だったので未変更。footer の診療時間テーブルは受付時間の案内ではないため対象外と判断
 - 著者が迷った点：muted を暗くしたので caption 系の文字がわずかに強く見えるが、要件の 4.5:1 を優先した。Card の本文を muted にする案は「本文サイズに muted を使わない」ルールとして退けた

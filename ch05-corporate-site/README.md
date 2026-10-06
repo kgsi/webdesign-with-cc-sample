@@ -16,8 +16,7 @@
 | `DESIGN.md`、`CLAUDE.md` | 5-5 デザインシステムと制作ルール |
 | `moodboard.png` | 出発点のムードボード |
 | `images/` | 写真素材 |
-| `screenshots/<版名>/` | 各版のスクリーンショット（375、768、1280） |
-| `versions/v1-draft/`、`versions/v2-improved/` | 5-4 の初稿と改善版の `index.html`（画像は親の `images/` を参照） |
+| `screenshots/` | 最終版のスクリーンショット（`index.html` と `news.html`、375、768、1280） |
 
 ## 開き方
 
@@ -29,15 +28,9 @@ python3 -m http.server 8000
 # http://localhost:8000/index.html
 ```
 
-## 版
+## 収録している版
 
-| 場所 | 内容 |
-|---|---|
-| `versions/v1-draft/index.html` | 5-4 初稿 |
-| `versions/v2-improved/index.html` | 5-4 改善版 |
-| ルートの `index.html`、`news.html` | 5-5 デザインシステム適用後（news.html 追加）＋ 5-6 チェックの修正（最終版） |
-
-差分を見るには `diff versions/v1-draft/index.html versions/v2-improved/index.html` のように比較してください。
+ルートの `index.html` と `news.html` は、5-5 のデザインシステムを適用し、5-6 の公開前チェックの修正を反映した最終版です。5-4 の初稿と改善版は収録していません。各版で何を変えたかは `docs/log.md` に記録しています。
 
 ## 画像クレジット
 
