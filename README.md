@@ -39,4 +39,5 @@ git clone https://github.com/kgsi/webdesign-with-cc-sample.git
 - `ch05-corporate-site/images/` の写真も Unsplash の素材で、撮影者と出典の一覧は同フォルダの `README.md` に記載しています
 - `ch03-lp-site/images/` のイラストと `ch03-lp-site/moodboard/` のムードボードは、著者がAI画像生成で作成したものです
 - `ch03-lp-site/example-result/index.html` のSNSアイコンとメニュー開閉ボタンのアイコンは [Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1 のSVGを埋め込んだもので、MIT Licenseで提供されています
+- `ch04-clinic-site/index.html` のアクセスの地図は [OpenStreetMap](https://www.openstreetmap.org/) の埋め込みです。地図データは © OpenStreetMap contributors で、[Open Database License](https://www.openstreetmap.org/copyright) で提供されています
 - `ch02-skill-compare/with-skill/.claude/skills/frontend-design/` は [Anthropic公開のSkill](https://github.com/anthropics/skills) の実物で、Apache License 2.0 で提供されています（ライセンス全文を同フォルダに同梱）
