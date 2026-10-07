@@ -13,6 +13,7 @@
 | `docs/tone.md` | トーン設計メモ（Figmaの「トーン」ページと対応） |
 | `docs/rules.md` | 変数とコンポーネントの定義（Figmaの「ルール」ページと対応） |
 | `docs/log.md` | 制作ログ（プロンプトと結果）。途中の版を作ったときのコミットも記載 |
+| `wireframe/01-header.png`〜`09-footer.png` | Figmaのワイヤーフレームをセクションごとに書き出した9枚。初稿のプロンプトで構造として渡す |
 | `index.html` | トップページ（4-4でルールを反映した最終版） |
 | `screenshots/index-1280.png` | 最終版のスクリーンショット（1280px） |
 
