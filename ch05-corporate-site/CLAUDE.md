@@ -31,7 +31,7 @@
 ## 完了前の確認
 
 - `<head>` に `og:title`、`og:description`、`og:image`、`<link rel="icon">` があるか（`index.html` からコピー）
-- 使っている色クラスが8色に収まっているか（`grep -oE 'bg-\w+|text-\w+|border-\w+'` で確認）
+- 使っている色クラスが8色に収まっているか（`grep -oE '(bg|text|border)-[a-z]+(-[0-9]+)?(/[0-9]+)?'` で確認）
 - 375px、768px、1280px で横スクロールが出ないか
 - 画像に `alt` があるか（装飾画像は `alt=""`）
 - 変更したファイルと判断した点を報告する
