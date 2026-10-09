@@ -7,7 +7,7 @@
 - 静的HTML＋Tailwind CSS（CDN版）。JavaScriptは書かない（`tailwind.config` の記述だけ例外）
 - Noto Sans JP を Google Fonts で読み込む
 - PC幅（1280px）だけを対象にする。レスポンシブの分岐（`sm:` `md:` `lg:`）は書かない
-- 写真は同梱しない。写真の位置には `moodboard/photo_links.md` のMサイズ画像URLを `<img>` で直接参照する。地図は OpenStreetMap の `export/embed.html` を `<iframe>` で埋め込む
+- 写真の位置には `images/` に同梱したぱくたその素材を `<img>` で置く（どの写真をどこに使うかは `moodboard/photo_links.md`）。外部の画像URLを直接参照しない。地図は OpenStreetMap の `export/embed.html` を `<iframe>` で埋め込む
 
 ## デザイントークン
 

@@ -48,6 +48,8 @@
 - 完了前に CLAUDE.md の「完了前の確認」を実行し、変更したファイルと判断に迷った点を報告する
 ```
 
+このプロンプトは、実行したときの文面のまま残している。2026年10月に写真を `images/` へ同梱する形に改めたので、いま試す場合は写真の行を「写真は images/ にある画像を使う。どの写真をどこに使うかは moodboard/photo_links.md にある」に置き換える。
+
 ### 結果（Claude Codeの報告から）
 
 - 9セクションを構造記述の順に実装。`<style>` に `--color-*` 9色、`--space-*` 6段階、`--radius-*` 3段階を定義し、`tailwind.config` の `theme.colors`、`fontSize`（H1〜Captionの5段階）、`spacing`、`borderRadius` からその変数を参照した
