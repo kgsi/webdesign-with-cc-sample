@@ -6,7 +6,7 @@
 
 - 最優先の要素は hero の「診療予約はこちら」ボタン。もっとも視線を集める配置にする
 - 2番目は reserve セクション。ページ中央で青の面を使う唯一の場所にする
-- hero の右側は写真の領域。`moodboard/photo_links.md` のFV素材をURLで直接参照し、装飾やイラストを足さない
+- hero の右側は写真の領域。`moodboard/photo_links.md` のFV素材（`images/hero.jpg`）を置き、装飾やイラストを足さない
 - services のカードには背景色を付けず、白地に line 色の罫線だけで区切る
 - message と doctor の写真の周囲は広く空ける。テキストを詰めない
 

@@ -29,4 +29,6 @@ python3 -m http.server 8000
 
 ## 写真について
 
-ムードボードの写真は [ぱくたそ](https://www.pakutaso.com/) の素材で、[利用規約](https://www.pakutaso.com/userpolicy.html) に従います。CC0ではないため、画像ファイルはこのリポジトリに同梱していません。素材ページと撮影者の一覧は `moodboard/photo_links.md` にあります。`index.html` とムードボードは、同ファイルに記したMサイズ画像URLを `<img>` で直接参照しています。表示にはネットワーク接続が必要です。
+`index.html` とムードボードの写真は [ぱくたそ](https://www.pakutaso.com/) の素材で、[利用規約](https://www.pakutaso.com/userpolicy.html) に従います。規約で再配布が認められているSサイズの画像を `images/` に同梱しています。使う前に `images/README.md` を読み、ぱくたその利用規約に同意してください。クレジットは同ファイル、素材の用途の一覧は `moodboard/photo_links.md` にあります。サイトに登場する医院名と人物名は架空で、人物写真はイメージです。
+
+2026年9月の時点では、写真をぱくたその画像URLで直接参照していました。ぱくたその規約が直接リンクを禁じているため、2026年10月に同梱へ改めました。それより前のコミットには、直接参照の形が残っています。
