@@ -35,8 +35,8 @@ git clone https://github.com/kgsi/webdesign-with-cc-sample.git
 ## ライセンス
 
 - このリポジトリのコードとドキュメントは [MIT License](./LICENSE) で提供します
-- `ch02-ec-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は同フォルダの `README.md` に記載しています
-- `ch05-corporate-site/images/` の写真も Unsplash の素材で、撮影者と出典の一覧は同フォルダの `README.md` に記載しています
+- `ch02-ec-site/images/` の写真は [Unsplash](https://unsplash.com/) の素材で、[Unsplash License](https://unsplash.com/license) に従います。撮影者と出典の一覧は `ch02-ec-site/README.md` の「画像クレジット」に記載しています
+- `ch05-corporate-site/images/` の写真も Unsplash の素材で、撮影者と出典の一覧は `ch05-corporate-site/README.md` の「画像クレジット」に記載しています
 - `ch03-lp-site/images/` のイラストと `ch03-lp-site/moodboard/` のムードボードは、著者がAI画像生成で作成したものです
 - `ch03-lp-site/example-result/index.html` のSNSアイコンとメニュー開閉ボタンのアイコンは [Bootstrap Icons](https://icons.getbootstrap.com/) v1.13.1 のSVGを埋め込んだもので、MIT Licenseで提供されています
 - `ch04-clinic-site/images/` の写真は [ぱくたそ](https://www.pakutaso.com/) の素材で、[利用規約](https://www.pakutaso.com/userpolicy.html) に従います。規約で再配布が認められているSサイズを同梱しています。使う前に規約を読み、同意してください。クレジットと素材の一覧は同フォルダの `README.md` に記載しています
